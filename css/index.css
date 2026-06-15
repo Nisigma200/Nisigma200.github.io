@@ -162,8 +162,17 @@
   content: "\f233";
 }
 
+.account-logo-qiita::before {
+  background: var(--color-logo-qiita);
+  content: "";
+  background-image: url("../image/index/qiita.svg");
+  background-size: 28px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .account-logo-misskey::before {
-  background: #A1CA03;
+  background: var(--color-logo-misskey);
   content: "";
   background-image: url("../image/index/misskey.svg");
   background-size: 28px;
