@@ -4,6 +4,9 @@ title: 西隈サイト | 404エラー
 css_path: css/404.css
 ---
 
+<head>
+  <meta http-equiv="refresh" content="3;URL='{{ site.baseurl }}/'">
+</head>
 <button id="page-top"></button>
 <div id="header"></div>
 <div class="container">
@@ -25,7 +28,9 @@ css_path: css/404.css
       <div class="box">
         <div class="box11">
           <p class="error_message">404エラー</p>
-          <p class="guid">ご希望のページが見つかりませんでした。URLをご確認の上もう一度お越しください。
+          <p class="guid">ご希望のページが見つかりませんでした。URLをご確認の上もう一度お越しください。<br>
+            3秒後にトップへ戻ります。<br>
+            戻らない場合は、<a class="a" href='{{ site.baseurl }}/'>TOP</a>をクリックしてください。
           </p>
         </div>
       </div>
