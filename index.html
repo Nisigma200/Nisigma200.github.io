@@ -4,7 +4,7 @@ title: 西隈サイト | TOP
 css_path: css/index.css
 ---
 
-<button id="page-top"></button>
+<button id="page-top" aria-label="ページの先頭へ戻る"></button>
 <div id="header"></div>
 <div class="container">
   <div id="content">
@@ -12,7 +12,7 @@ css_path: css/index.css
       <div class="pan">
         <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
           <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a class="pan-home" itemprop="item" href="{{ site.baseurl }}/">
+            <a class="pan-home" itemprop="item" href="{{ site.baseurl }}/" alt="サイトのトップページのURLリンク">
               <span itemprop="name">ホーム</span>
             </a>
             <meta itemprop="position" content="1" />
@@ -36,9 +36,11 @@ css_path: css/index.css
         </div>
         <p>西隈（ニシグマ）</p>
       </div>
-      <p>書家の末席を汚してるプログラマー。古の時代に友人とMinecraftのミニゲーム用プラグインを作り出してからプログラムにのめり込む。</p>
+      <p>書家の末席を汚してるプログラマー。古の時代に友人とMinecraftのミニゲーム用プラグインを作り出してからプログラムにのめり込む。<br></p>
+
+      <h3>使ったことある言語</h3>
       <ul class="language">
-        <p>使ったことある言語</p>
+
         <li>C++</li>
         <li>Java（Minecraftプラグインで）</li>
         <li>Python</li>
@@ -74,7 +76,7 @@ css_path: css/index.css
         <div class="major_exe">
           <div class="about-me img-frame">
             <div class="icon major_icon_div">
-              <img src="{{ 'image/index/major_exe.svg' | relative_url }}" class="major_icon">
+              <img src="{{ 'image/index/major_exe.svg' | relative_url }}" class="major_icon" alt="少佐.exeのアイコン">
             </div>
             <p>少佐.exe（少佐.exe）</p>
           </div>

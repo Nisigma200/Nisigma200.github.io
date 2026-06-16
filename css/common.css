@@ -1,10 +1,10 @@
 @import url('https://use.fontawesome.com/releases/v7.2.0/css/all.css');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Sharp');
+/* @import url('https://fonts.googleapis.com/icon?family=Material+Icons+Sharp');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons+Round');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap'); */
 
 * {
   box-sizing: border-box;
@@ -21,7 +21,7 @@ html {
   --color-main: #242424;
   --color-second: #d9d9d9;
   --color-text: #333333;
-  --color-hover: #8C8C8C;
+  --color-hover: #757575;
 
   --color-logo-twitter: #000000;
   /*--color-logo-twitter: #1da1f3;*/
@@ -867,12 +867,13 @@ footer .copyright-1 {
   /* ラベルの角の丸み */
   cursor: pointer;
   color: var(--color-main);
+  transition: 0.3s ease;
 }
 
 .acbox>label:hover {
   background: var(--color-main);
-  color: var(--color-second)
-    /* ラベルにマウスを乗せた時の背景色 */
+  color: var(--color-second);
+  transition: 0.3s ease;
 }
 
 .acbox input {
