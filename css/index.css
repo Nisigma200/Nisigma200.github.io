@@ -186,7 +186,7 @@
 }
 
 .account-logo-discord::before {
-  background: #5865F2;
+  background: var(--color-logo-discord);
   content: "\f392";
 }
 
@@ -195,11 +195,20 @@
   content: "\f2d0";
 }
 
-.account-logo-fad::before {
+.account-logo-ohoo::before {
   background: #0c3b4b;
   content: "";
   background-image: url("../image/index/ohoo.png");
   background-size: 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.account-logo-fad::before {
+  background: #000946;
+  content: "";
+  background-image: url("../image/index/logo.svg");
+  background-size: 30px;
   background-repeat: no-repeat;
   background-position: center;
 }
