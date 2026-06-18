@@ -54,7 +54,8 @@ p,
 ul li,
 ol li,
 table,
-blockquote {
+blockquote,
+time {
   line-height: 2;
   font-size: 16px;
   color: var(--color-text);
@@ -724,8 +725,9 @@ footer .copyright-1 {
   margin: 35px 0 20px 0;
 }
 
+#update-day time,
 #update-day p {
-  display: inline;
+  display: inline-block;
   color: var(--color-hover);
   font-size: 13px;
 }
