@@ -2,87 +2,68 @@
 layout: default
 title: 西隈サイト | Portfolio
 css_path: css/portfolio/index.css
+create-date: 2026-02-16
+update-date: 2026-02-16
+breadcrumbs:
+- { name: "ホーム", url: "/", icon: "home" }
+- { name: "Portfolio", url: null, icon: "folder" }
 ---
 
-<div class="container">
-    <div id="content">
-        <div id="child1">
-            <div class="pan">
-                <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <a class="pan-home" itemprop="item" href="{{ site.baseurl }}/">
-                            <span itemprop="name">ホーム</span>
-                        </a>
-                        <meta itemprop="position" content="1" />
-                    </li>
-                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <a class="pan-folder" itemprop="item" href="{{ site.baseurl }}/portfolio/">
-                            <span itemprop="name">Portfolio</span>
-                        </a>
-                        <meta itemprop="position" content="2" />
-                    </li>
-                </ol>
-            </div>
+<h1>Portfolio</h1>
+<div id="update-day">
+    <time id="released" datetime="2026-02-16">2026.02.16</time>
+    <p id="updated">最新版</p>
+</div>
 
-            <h1>Portfolio</h1>
-            <div id="update-day">
-                <time id="released" datetime="2026-02-16">2026.02.16</time>
-                <p id="updated">最新版</p>
-            </div>
+<div id="filter-buttons">
+    <button type="button" class="filter-btn active" data-target="all">全 て</button>
+    <button type="button" class="filter-btn" data-target="dev">開 発</button>
+    <button type="button" class="filter-btn" data-target="design">デザイン</button>
+    <button type="button" class="filter-btn" data-target="management">運 営</button>
+    <button type="button" class="filter-btn" data-target="calligraphy">書 道</button>
+</div>
 
-            <div id="filter-buttons">
-                <button type="button" class="filter-btn active" data-target="all">全 て</button>
-                <button type="button" class="filter-btn" data-target="dev">開 発</button>
-                <button type="button" class="filter-btn" data-target="design">デザイン</button>
-                <button type="button" class="filter-btn" data-target="management">運 営</button>
-                <button type="button" class="filter-btn" data-target="calligraphy">書 道</button>
-            </div>
-
-            <div class="card-contents">
-                <div class="card-grid">
-                    {% assign portfolio_items = site.portfolio | default: site.collections.portfolio.docs | default: []
-                    | sort: "date" | reverse %}
-                    {% for item in portfolio_items %}
-                    {% assign number = forloop.rindex | prepend: '0' %}
-                    {% assign all_tags = item.categories | concat: item.tags %}
-                    <div class="card-blog-a" data-number="{{ number | slice: -2, 2 }}"
-                        data-tags="{{ all_tags | join: ',' }}">
-                        <a href="{{ item.url | relative_url }}">
-                            {% assign thumb = item.thumbnail %}
-                            {% if item.thumbnail_webp %}
-                            {% assign thumb_webp = item.thumbnail_webp %}
-                            {% else %}
-                            {% assign thumb_webp = thumb | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' |
-                            replace: '.png', '.webp' %}
-                            {% endif %}
-                            <picture>
-                                <source srcset="{{ thumb_webp | relative_url }}" type="image/webp">
-                                <img src="{{ thumb | relative_url }}" alt="{{ item.title }} サムネイル">
-                            </picture>
-                            <div class="card-blog-content">
-                                <h2 class="card-title">{{ item.title }}</h2>
-                                <p class="card-excerpt">
-                                    {{ item.excerpt | strip_html | truncate: 120 }}
-                                </p>
-                                <div class="card-filters">
-                                    <span class="title-tag AweSomeFont-Free"></span>
-                                    {% for category in item.categories %}
-                                    <span class="filter-label">{{ category }}</span>
-                                    {% endfor %}
-                                </div>
-                                <div class="card-tags">
-                                    <span class="title-tag AweSomeFont-Free"></span>
-                                    {% for tag in item.tags %}
-                                    <span class="tag-label">{{ tag }}</span>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </a>
+<div class="card-contents">
+    <div class="card-grid">
+        {% assign portfolio_items = site.portfolio | default: site.collections.portfolio.docs | default: []
+        | sort: "date" | reverse %}
+        {% for item in portfolio_items %}
+        {% assign number = forloop.rindex | prepend: '0' %}
+        {% assign all_tags = item.categories | concat: item.tags %}
+        <div class="card-blog-a" data-number="{{ number | slice: -2, 2 }}" data-tags="{{ all_tags | join: ',' }}">
+            <a href="{{ item.url | relative_url }}">
+                {% assign thumb = item.thumbnail %}
+                {% if item.thumbnail_webp %}
+                {% assign thumb_webp = item.thumbnail_webp %}
+                {% else %}
+                {% assign thumb_webp = thumb | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' |
+                replace: '.png', '.webp' %}
+                {% endif %}
+                <picture>
+                    <source srcset="{{ thumb_webp | relative_url }}" type="image/webp">
+                    <img src="{{ thumb | relative_url }}" alt="{{ item.title }} サムネイル">
+                </picture>
+                <div class="card-blog-content">
+                    <h2 class="card-title">{{ item.title }}</h2>
+                    <p class="card-excerpt">
+                        {{ item.excerpt | strip_html | truncate: 120 }}
+                    </p>
+                    <div class="card-filters">
+                        <span class="title-tag AweSomeFont-Free"></span>
+                        {% for category in item.categories %}
+                        <span class="filter-label">{{ category }}</span>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
+                    <div class="card-tags">
+                        <span class="title-tag AweSomeFont-Free"></span>
+                        {% for tag in item.tags %}
+                        <span class="tag-label">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
+        {% endfor %}
     </div>
 </div>
 <script src="{{ '/javascript/portfolio-tag.js' | relative_url }}"></script>

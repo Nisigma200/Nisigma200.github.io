@@ -2,37 +2,24 @@
 layout: default
 title: 西隈サイト | 404エラー
 css_path: css/404.css
+create-date: 2026-02-14
+update-date: 2026-02-14
+breadcrumbs:
+- { name: "ホーム", url: "/", icon: "home" }
+- { name: "404エラー", url: null, icon: "404" }
 ---
+
 
 <head>
   <meta http-equiv="refresh" content="3;URL='{{ site.baseurl }}/'">
 </head>
 
-<div class="container">
-  <div id="content">
-    <div id="child1">
-      <!-- パンくずリスト -->
-      <div class="pan">
-        <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-          <!-- 1つめ -->
-          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a class="pan-404" itemprop="item" href="{{ site.baseurl }}/404">
-              <span itemprop="name">404エラー</span>
-            </a>
-            <meta itemprop="position" content="1" />
-          </li>
-        </ol>
-      </div>
-      <!-- パンくずリスト -->
-      <div class="box">
-        <div class="box11">
-          <p class="error_message">404エラー</p>
-          <p class="guid">ご希望のページが見つかりませんでした。URLをご確認の上もう一度お越しください。<br>
-            3秒後にトップへ戻ります。<br>
-            戻らない場合は、<a class="a" href='{{ site.baseurl }}/'>TOP</a>をクリックしてください。
-          </p>
-        </div>
-      </div>
-    </div>
+<div class="box">
+  <div class="box11">
+    <p class="error_message">404エラー</p>
+    <p class="guid">ご希望のページが見つかりませんでした。URLをご確認の上もう一度お越しください。<br>
+      3秒後にトップへ戻ります。<br>
+      戻らない場合は、<a class="a" href='{{ site.baseurl }}/'>TOP</a>をクリックしてください。
+    </p>
   </div>
 </div>

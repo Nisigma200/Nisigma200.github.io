@@ -10,7 +10,6 @@ html {
   scroll-behavior: smooth;
 }
 
-
 :root {
   --color-main: #242424;
   --color-second: #d9d9d9;
@@ -48,14 +47,19 @@ html {
   --color-blockquote-border: #C4C4C4;
 
   --main-font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+  --header-height: 4.0625rem;
+  /* 65px */
+  --metadata-height: 2.25rem;
+  /* breadcrumb/date row height */
+  --footer-height: 6.4375rem;
+  /* match reference's footer spacing */
 }
 
 p,
 ul li,
 ol li,
 table,
-blockquote,
-time {
+blockquote {
   line-height: 2;
   font-size: 16px;
   color: var(--color-text);
@@ -65,7 +69,7 @@ time {
 p,
 ul,
 ol {
-  margin: 0
+  margin: 0;
 }
 
 h1,
@@ -80,6 +84,7 @@ h6 {
 h1 {
   position: relative;
   text-align: center;
+  margin-bottom: 50px;
 }
 
 h1:before {
@@ -114,10 +119,12 @@ body {
   margin: 0;
   font-family: var(--main-font-family);
   background-color: var(--color-main);
+  overflow-x: hidden;
 }
 
 .container {
   width: 100%;
+  min-height: calc(100svh - 65px - 103px);
 }
 
 #content {
@@ -130,14 +137,10 @@ body {
   width: 100%;
   max-width: 900px;
   background-color: #FFFFFF;
-  margin-top: 65px;
   padding: 0 15px;
-  padding-bottom: 20px;
-}
-
-.container,
-#child1 {
   min-height: calc(100svh - 65px - 103px);
+  padding-bottom: 30px;
+  min-height: 100vh;
 }
 
 .AweSomeFont-Free {
@@ -232,8 +235,7 @@ a {
   text-align: right;
   width: 150px;
   height: 35px;
-  margin: 0;
-  margin-top: 10px;
+  margin: 10px 0 0 0;
 }
 
 #pdf .btn,
@@ -620,24 +622,190 @@ blockquote::after {
 
 /* ↑ ボタン ↑ */
 /* ↓ ヘッダー ↓ */
-header {
+header .contents {
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: center;
   background-color: var(--color-main);
-  height: 65px;
+  height: 4.0625rem;
   position: fixed;
-  z-index: 100;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-image: none;
 }
 
-.contents {
+.metadata {
   display: flex;
-  width: 100%;
-  max-width: 900px;
-  height: 100%;
   align-items: center;
+  margin-top: 80px;
+  font-size: 0.8125rem;
 }
+
+/* ↓ 日付 ↓ */
+
+@media screen and (max-width: 47.9375rem) {
+
+  .metadata {
+    flex-direction: column;
+    align-items: unset;
+    gap: 0.625rem;
+  }
+
+  .news-list .item a {
+    flex-wrap: wrap;
+  }
+
+  .news-list .item .date {
+    min-width: 100%;
+    margin-bottom: 0.625rem;
+  }
+
+  .news-list .item .category {
+    min-width: 50%;
+    margin-bottom: 0.625rem;
+  }
+}
+
+.breadcrumb-nav li {
+  display: inline;
+  list-style: none;
+  font-weight: bold;
+  font-size: 0.8125rem;
+}
+
+.breadcrumb-nav li a:before,
+.breadcrumb-nav li span:before {
+  font-family: 'Material Icons Sharp';
+  -webkit-font-smoothing: antialiased;
+  color: var(--color-main);
+  margin-right: 0.1875rem;
+  vertical-align: bottom;
+}
+
+/* 各クラスのアイコン定義 */
+.pan-home:before {
+  content: '\e88a';
+}
+
+.pan-folder:before {
+  content: '\e2c7';
+}
+
+.pan-paper:before {
+  content: '\e24d';
+}
+
+.pan-404:before {
+  content: '\e5c9';
+}
+
+.breadcrumb-nav,
+.date {
+  flex: 1;
+}
+
+.breadcrumb-nav {
+  position: relative;
+  overflow: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  z-index: 1;
+}
+
+.breadcrumb-nav ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumb-nav li {
+  display: inline;
+  list-style: none;
+  font-weight: bold;
+}
+
+.breadcrumb-nav li:not(:last-child):after {
+  font-family: 'Material Icons Sharp';
+  content: '\e409';
+  font-size: 0.8125rem;
+  padding: 0 0.2em;
+  color: var(--color-main);
+}
+
+.breadcrumb-nav li,
+.breadcrumb-nav li a {
+  color: var(--color-main);
+}
+
+.breadcrumb-nav li a:hover span {
+  text-decoration: underline;
+}
+
+.date {
+  text-align: right;
+}
+
+.date time::before {
+  font-family: 'Material Icons Sharp';
+  display: inline-block;
+  color: var(--color-hover);
+  margin-right: 0.3125rem;
+  vertical-align: top;
+}
+
+.date .create-day::before {
+  content: '\e8b5';
+}
+
+.date .update-day::before {
+  content: '\e923';
+}
+
+footer,
+#child1>footer {
+  display: flex;
+  justify-content: center;
+  background: var(--color-main);
+  padding: 0 30px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+footer .contents {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 15px;
+}
+
+.copyright,
+#child1>footer .copyright {
+  flex: 1;
+  text-align: center;
+  padding: 20px 15px;
+  max-width: 900px;
+  color: var(--color-second);
+  font-size: 10px;
+}
+
+footer .copyright-1 {
+  color: var(--color-second);
+  font-size: 10px;
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+@media screen and (max-width: 640px) {
+  footer {
+    padding: 0 15px;
+  }
+}
+
+/* ↑ フッターリンク ↑ */
+/* ↑ フッター ↑ */
+
+/* ↓ 公開日・更新日 ↓ */
 
 .left {
   flex: 1;
@@ -666,14 +834,14 @@ header {
 
 .center span::after {
   color: var(--color-second);
-  margin: 0 15px 0 15px;
+  margin: 0 15px;
   font-size: 14px;
   content: "|";
 }
 
 .center span:first-of-type::before {
   color: var(--color-second);
-  margin: 0 15px 0 15px;
+  margin: 0 15px;
   font-size: 14px;
   content: "|";
 }
@@ -683,43 +851,6 @@ header {
   flex: 1;
 }
 
-/* ↑ ヘッダー ↑ */
-/* ↓ フッター ↓ */
-footer {
-  display: flex;
-  justify-content: center;
-  background: var(--color-main);
-  padding: 0 30px;
-}
-
-footer .copyright,
-footer .copyright-1 {
-  color: var(--color-second);
-  font-size: 10px;
-}
-
-.copyright {
-  flex: 1;
-  text-align: center;
-  padding: 20px 15px;
-  max-width: 900px;
-}
-
-footer .copyright-1 {
-  text-align: left;
-  padding-bottom: 20px;
-}
-
-@media screen and (max-width: 640px) {
-  footer {
-    padding: 0 15px;
-  }
-}
-
-/* ↑ フッターリンク ↑ */
-/* ↑ フッター ↑ */
-
-/* ↓ 公開日・更新日 ↓ */
 #update-day {
   text-align: right;
   margin: 35px 0 20px 0;
@@ -908,46 +1039,32 @@ footer .copyright-1 {
   opacity: 0;
   transition: 0.15s;
   /* 開閉スピードの設定 */
-}
-
-.acbox input:checked~.acbox-under {
-  height: auto;
-  padding: 18px 10px;
-  /* 開いた部分の枠内の余白 */
-  border-radius: 0px;
-  /* 開いた部分の背景色 */
-  opacity: 1;
-}
-
-.acbox input:checked~label {
-  background: #ffffff;
-  /* クリック後のラベルの背景色 */
-  border: 1px solid var(--color-second);
-  color: var(--color-text);
-
-}
-
-.acbox-under {
   font-size: 15px;
-  /* 開いた部分の文字サイズ */
   color: var(--color-text);
-  /* 開いた部分の文字色 */
   padding: 0.5em 1em;
   border: solid 1px var(--color-second);
   border-radius: 4px !important;
 }
 
-/* ↑ アコーディオンボックス ↑ */
-/* ↓ Page TOP ↓ */
-/* ボタンのスタイル */
+.acbox input:checked~.acbox-under {
+  height: auto;
+  padding: 18px 10px;
+  border-radius: 0px;
+  opacity: 1;
+}
+
+.acbox input:checked~label {
+  background: #ffffff;
+  border: 1px solid var(--color-second);
+  color: var(--color-text);
+}
+
 #page-top {
-  /* buttonタグのリセットCSS */
   border: none;
   cursor: pointer;
   outline: none;
   padding: 0;
   appearance: none;
-  /* ボタンの装飾 */
   position: fixed;
   right: 30px;
   bottom: 30px;

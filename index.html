@@ -2,492 +2,475 @@
 layout: default
 title: 西隈サイト | TOP
 css_path: css/index.css
+create-date: 2026-02-14
+update-date: 2026-06-15
+breadcrumbs:
+- { name: "ホーム", url: "/", icon: "home" }
+- { name: "TOP", url: null, icon: "paper" }
 ---
 
-<div class="container">
-  <div id="content">
-    <div id="child1">
-      <div class="pan">
-        <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a class="pan-home" itemprop="item" href="{{ site.baseurl }}/" alt="サイトのトップページのURLリンク">
-              <span itemprop="name">ホーム</span>
-            </a>
-            <meta itemprop="position" content="1" />
-          </li>
-        </ol>
-      </div>
-      <h1>About Me</h1>
-      <div id="update-day">
-        <time id="released" datetime="2026-02-14">2026.02.14</time>
-        <time id="updated" datetime="2026-06-15">2026.06.15</time>
-      </div>
-      <div class="about-me img-frame">
-        <div class="icon">
-          <svg version="1.1" viewBox="0 0 1313 1313" xmlns="http://www.w3.org/2000/svg"
-            xmlns:svg="http://www.w3.org/2000/svg">
-            <g>
-              <path style="fill:#f9f9f9"
-                d="m 154.38127,1187.004 c -13.71496,-2.0192 -29.01092,-10.2155 -37.89002,-20.3033 -6.00908,-6.8271 -11.91894,-18.7415 -14.05192,-28.3288 -3.59987,-16.1807 0.24614,-35.1491 9.86894,-48.6733 2.42575,-3.4092 60.04379,-102.5657 128.04008,-220.3477 L 363.97798,655.20179 239.34849,439.3509 C 170.80227,320.6329 113.70756,222.15 112.47136,220.5 c -3.80708,-5.08143 -7.51204,-13.33915 -9.5368,-21.25585 -5.063792,-19.79926 0.3663,-40.91533 14.37795,-55.91166 7.53175,-8.06107 15.05083,-12.97908 25.64332,-16.77257 L 151.5,123.5 h 555 555 l 8.5442,3.05992 c 10.5925,3.79349 18.1115,8.7115 25.6433,16.77257 16.5062,17.66624 20.7935,43.14068 11.1076,65.99974 -1.2043,2.84227 -13.6367,24.96777 -27.6276,49.16777 -13.9908,24.2 -27.4437,48.0064 -29.8952,52.90312 -3.461,6.91308 -6.1689,10.60341 -12.1148,16.50995 -13.1025,13.0158 -27.6039,18.736 -45.0844,17.78394 -5.2652,-0.28676 -10.2481,-0.70835 -11.0731,-0.93686 -13.2691,-3.67534 -21.921,-8.62278 -30.6531,-17.52847 -16.9288,-17.26539 -21.7224,-43.71892 -11.9913,-66.17419 1.9352,-4.46556 4.6719,-9.48984 6.0815,-11.16507 1.4096,-1.67523 2.5629,-3.46134 2.5629,-3.96915 C 1147,245.36031 975.66536,245 707.96482,245 H 268.92963 l 1.1921,2.25 c 0.65566,1.2375 49.77804,86.4 109.16085,189.25 59.38281,102.85 109.24603,190.18458 110.80715,194.07684 7.61476,18.98551 6.15587,38.29495 -4.41998,58.50149 -1.84856,3.53192 -51.13049,89.14657 -109.51539,190.25477 C 317.76946,980.44131 270,1063.3538 270,1063.5831 270,1063.8124 467.36776,1064 708.59502,1064 H 1147.19 l -2.7303,-4.75 c -1.5017,-2.6125 -3.5045,-5.65 -4.4508,-6.75 -6.2333,-7.2462 -10.9686,-22.5452 -10.9941,-35.5201 -0.015,-7.7672 2.6036,-19.5632 5.7645,-25.96472 11.7133,-23.72192 38.2055,-38.0287 63.0211,-34.03381 12.5416,2.01898 23.9679,7.16636 32.2873,14.54502 5.5738,4.94346 11.7953,12.95432 14.0806,18.1302 1.1762,2.66388 14.7547,26.66841 30.1746,53.34341 15.4199,26.675 29.3437,51.1832 30.9419,54.4627 16.8663,34.6096 -0.01,74.8712 -36.5703,87.255 L 1260.5,1187.5 710,1187.6288 c -302.775,0.071 -552.80343,-0.2103 -555.61873,-0.6248 z M 20.332455,1102.2098 C 7.4705435,1097.6135 0,1087.2064 0,1073.885 0,1066.7461 2.1701869,1060.7658 8.742494,1049.7933 30.994978,1012.6429 235.44655,657.05145 235.44615,655.5 235.44574,653.88554 22.490023,283.69819 4.9290534,254.78517 L 0,246.6698 0,237.15063 C 0,225.601 1.7824289,221.17913 9.0843195,214.6141 14.994461,209.30037 21.189873,207 29.590766,207 c 8.437465,0 17.179914,4.42988 22.699579,11.50208 3.29785,4.22545 238.615945,410.64591 246.879825,426.38884 3.85142,7.33709 3.85174,13.87978 0.001,21.21816 -1.55585,2.96501 -55.28518,96.15278 -119.3985,207.08394 -64.11332,110.93116 -118.500306,205.19048 -120.859962,209.46508 -2.359656,4.2747 -6.129567,9.6114 -8.377581,11.8594 -8.308409,8.3084 -20.085244,11.3078 -30.202682,7.6923 z M 881.5,904.40815 C 853.82747,901.62224 838.62567,898.62282 819,892.07644 780.53779,879.24692 748.69404,859.6525 720.52077,831.47923 680.75928,791.71775 656.3139,741.42263 648.84014,684 c -1.59282,-12.23806 -1.59282,-45.76194 0,-58 7.47376,-57.42263 31.91914,-107.71775 71.68063,-147.47923 39.76148,-39.76149 90.0566,-64.20687 147.47923,-71.68063 12.23806,-1.59282 45.76194,-1.59282 58,0 57.42263,7.47376 107.7177,31.91914 147.4792,71.68063 39.7615,39.76148 64.2069,90.0566 71.6807,147.47923 1.5928,12.23806 1.5928,45.76194 0,58 -7.4738,57.42263 -31.9192,107.71775 -71.6807,147.47923 -39.4833,39.48335 -90.63805,64.45513 -146.4792,71.50555 -9.1327,1.15308 -38.92677,2.08513 -45.5,1.42337 z M 913.10615,702.1535 c 14.29872,-4.96538 25.80724,-16.40144 31.10059,-30.90477 1.63264,-4.4733 2.09814,-8.07829 2.09814,-16.24873 0,-8.17044 -0.4655,-11.77543 -2.09814,-16.24873 -5.27043,-14.44051 -16.55404,-25.6902 -31.10059,-31.00706 -4.32113,-1.57941 -8.01292,-2.04909 -16.10615,-2.04909 -8.09323,0 -11.78502,0.46968 -16.10615,2.04909 -14.54655,5.31686 -25.83016,16.56655 -31.10059,31.00706 -2.94452,8.06772 -2.96923,24.36551 -0.0491,32.35488 6.23298,17.05296 19.89425,28.96473 37.75579,32.92069 5.93786,1.31512 19.22337,0.34315 25.60615,-1.87334 z" />
-            </g>
-          </svg>
-        </div>
-        <p>西隈（ニシグマ）</p>
-      </div>
-      <p>書家の末席を汚してるプログラマー。古の時代に友人とMinecraftのミニゲーム用プラグインを作り出してからプログラムにのめり込む。<br></p>
+<h1>About Me</h1>
+<div class="about-me img-frame">
+  <div class="icon">
+    <svg version="1.1" viewBox="0 0 1313 1313" xmlns="http://www.w3.org/2000/svg"
+      xmlns:svg="http://www.w3.org/2000/svg">
+      <g>
+        <path style="fill:#f9f9f9"
+          d="m 154.38127,1187.004 c -13.71496,-2.0192 -29.01092,-10.2155 -37.89002,-20.3033 -6.00908,-6.8271 -11.91894,-18.7415 -14.05192,-28.3288 -3.59987,-16.1807 0.24614,-35.1491 9.86894,-48.6733 2.42575,-3.4092 60.04379,-102.5657 128.04008,-220.3477 L 363.97798,655.20179 239.34849,439.3509 C 170.80227,320.6329 113.70756,222.15 112.47136,220.5 c -3.80708,-5.08143 -7.51204,-13.33915 -9.5368,-21.25585 -5.063792,-19.79926 0.3663,-40.91533 14.37795,-55.91166 7.53175,-8.06107 15.05083,-12.97908 25.64332,-16.77257 L 151.5,123.5 h 555 555 l 8.5442,3.05992 c 10.5925,3.79349 18.1115,8.7115 25.6433,16.77257 16.5062,17.66624 20.7935,43.14068 11.1076,65.99974 -1.2043,2.84227 -13.6367,24.96777 -27.6276,49.16777 -13.9908,24.2 -27.4437,48.0064 -29.8952,52.90312 -3.461,6.91308 -6.1689,10.60341 -12.1148,16.50995 -13.1025,13.0158 -27.6039,18.736 -45.0844,17.78394 -5.2652,-0.28676 -10.2481,-0.70835 -11.0731,-0.93686 -13.2691,-3.67534 -21.921,-8.62278 -30.6531,-17.52847 -16.9288,-17.26539 -21.7224,-43.71892 -11.9913,-66.17419 1.9352,-4.46556 4.6719,-9.48984 6.0815,-11.16507 1.4096,-1.67523 2.5629,-3.46134 2.5629,-3.96915 C 1147,245.36031 975.66536,245 707.96482,245 H 268.92963 l 1.1921,2.25 c 0.65566,1.2375 49.77804,86.4 109.16085,189.25 59.38281,102.85 109.24603,190.18458 110.80715,194.07684 7.61476,18.98551 6.15587,38.29495 -4.41998,58.50149 -1.84856,3.53192 -51.13049,89.14657 -109.51539,190.25477 C 317.76946,980.44131 270,1063.3538 270,1063.5831 270,1063.8124 467.36776,1064 708.59502,1064 H 1147.19 l -2.7303,-4.75 c -1.5017,-2.6125 -3.5045,-5.65 -4.4508,-6.75 -6.2333,-7.2462 -10.9686,-22.5452 -10.9941,-35.5201 -0.015,-7.7672 2.6036,-19.5632 5.7645,-25.96472 11.7133,-23.72192 38.2055,-38.0287 63.0211,-34.03381 12.5416,2.01898 23.9679,7.16636 32.2873,14.54502 5.5738,4.94346 11.7953,12.95432 14.0806,18.1302 1.1762,2.66388 14.7547,26.66841 30.1746,53.34341 15.4199,26.675 29.3437,51.1832 30.9419,54.4627 16.8663,34.6096 -0.01,74.8712 -36.5703,87.255 L 1260.5,1187.5 710,1187.6288 c -302.775,0.071 -552.80343,-0.2103 -555.61873,-0.6248 z M 20.332455,1102.2098 C 7.4705435,1097.6135 0,1087.2064 0,1073.885 0,1066.7461 2.1701869,1060.7658 8.742494,1049.7933 30.994978,1012.6429 235.44655,657.05145 235.44615,655.5 235.44574,653.88554 22.490023,283.69819 4.9290534,254.78517 L 0,246.6698 0,237.15063 C 0,225.601 1.7824289,221.17913 9.0843195,214.6141 14.994461,209.30037 21.189873,207 29.590766,207 c 8.437465,0 17.179914,4.42988 22.699579,11.50208 3.29785,4.22545 238.615945,410.64591 246.879825,426.38884 3.85142,7.33709 3.85174,13.87978 0.001,21.21816 -1.55585,2.96501 -55.28518,96.15278 -119.3985,207.08394 -64.11332,110.93116 -118.500306,205.19048 -120.859962,209.46508 -2.359656,4.2747 -6.129567,9.6114 -8.377581,11.8594 -8.308409,8.3084 -20.085244,11.3078 -30.202682,7.6923 z M 881.5,904.40815 C 853.82747,901.62224 838.62567,898.62282 819,892.07644 780.53779,879.24692 748.69404,859.6525 720.52077,831.47923 680.75928,791.71775 656.3139,741.42263 648.84014,684 c -1.59282,-12.23806 -1.59282,-45.76194 0,-58 7.47376,-57.42263 31.91914,-107.71775 71.68063,-147.47923 39.76148,-39.76149 90.0566,-64.20687 147.47923,-71.68063 12.23806,-1.59282 45.76194,-1.59282 58,0 57.42263,7.47376 107.7177,31.91914 147.4792,71.68063 39.7615,39.76148 64.2069,90.0566 71.6807,147.47923 1.5928,12.23806 1.5928,45.76194 0,58 -7.4738,57.42263 -31.9192,107.71775 -71.6807,147.47923 -39.4833,39.48335 -90.63805,64.45513 -146.4792,71.50555 -9.1327,1.15308 -38.92677,2.08513 -45.5,1.42337 z M 913.10615,702.1535 c 14.29872,-4.96538 25.80724,-16.40144 31.10059,-30.90477 1.63264,-4.4733 2.09814,-8.07829 2.09814,-16.24873 0,-8.17044 -0.4655,-11.77543 -2.09814,-16.24873 -5.27043,-14.44051 -16.55404,-25.6902 -31.10059,-31.00706 -4.32113,-1.57941 -8.01292,-2.04909 -16.10615,-2.04909 -8.09323,0 -11.78502,0.46968 -16.10615,2.04909 -14.54655,5.31686 -25.83016,16.56655 -31.10059,31.00706 -2.94452,8.06772 -2.96923,24.36551 -0.0491,32.35488 6.23298,17.05296 19.89425,28.96473 37.75579,32.92069 5.93786,1.31512 19.22337,0.34315 25.60615,-1.87334 z" />
+      </g>
+    </svg>
+  </div>
+  <p>西隈（ニシグマ）</p>
+</div>
+<p>書家の末席を汚してるプログラマー。古の時代に友人とMinecraftのミニゲーム用プラグインを作り出してからプログラムにのめり込む。<br></p>
 
-      <h3>使ったことある言語</h3>
-      <ul class="language">
+<h3>使ったことある言語</h3>
+<ul class="language">
 
-        <li>C++</li>
-        <li>Java（Minecraftプラグインで）</li>
-        <li>Python</li>
-        <li>C#（Unity）</li>
-        <li>JavaScript</li>
-        <li>HTML/CSS</li>
-      </ul>
-      <h2>西隈ってなんなの？</h2>
-      <p>西隈はもともと「24s」って名乗ってたが、Discordで呼ばれることが多くなり、「にじゅうよんえす」はあまりに言いにくいので、発音しやすい名前にしようということで決めました。</p>
-      <p>「24」を「にし」と読ませ、「s」をsの字の元となった「Σ（シグマ）」と読むことで「にししぐま」→「にしぐま」となりました。</p>
-      <h2>西隈と少佐.exe</h2>
-      <p>西隈は現在、2つの名義を持っています。</p>
-      <p>とはいっても、少佐.exe名義はあんまり使ってない上に、割当も結構テキトー。</p>
-      <div class="meigi">
-        <div class="nisigma">
-          <div class="about-me img-frame">
-            <div class="icon">
-              <svg version="1.1" viewBox="0 0 1313 1313" xmlns="http://www.w3.org/2000/svg"
-                xmlns:svg="http://www.w3.org/2000/svg">
-                <g>
-                  <path style="fill:#f9f9f9"
-                    d="m 154.38127,1187.004 c -13.71496,-2.0192 -29.01092,-10.2155 -37.89002,-20.3033 -6.00908,-6.8271 -11.91894,-18.7415 -14.05192,-28.3288 -3.59987,-16.1807 0.24614,-35.1491 9.86894,-48.6733 2.42575,-3.4092 60.04379,-102.5657 128.04008,-220.3477 L 363.97798,655.20179 239.34849,439.3509 C 170.80227,320.6329 113.70756,222.15 112.47136,220.5 c -3.80708,-5.08143 -7.51204,-13.33915 -9.5368,-21.25585 -5.063792,-19.79926 0.3663,-40.91533 14.37795,-55.91166 7.53175,-8.06107 15.05083,-12.97908 25.64332,-16.77257 L 151.5,123.5 h 555 555 l 8.5442,3.05992 c 10.5925,3.79349 18.1115,8.7115 25.6433,16.77257 16.5062,17.66624 20.7935,43.14068 11.1076,65.99974 -1.2043,2.84227 -13.6367,24.96777 -27.6276,49.16777 -13.9908,24.2 -27.4437,48.0064 -29.8952,52.90312 -3.461,6.91308 -6.1689,10.60341 -12.1148,16.50995 -13.1025,13.0158 -27.6039,18.736 -45.0844,17.78394 -5.2652,-0.28676 -10.2481,-0.70835 -11.0731,-0.93686 -13.2691,-3.67534 -21.921,-8.62278 -30.6531,-17.52847 -16.9288,-17.26539 -21.7224,-43.71892 -11.9913,-66.17419 1.9352,-4.46556 4.6719,-9.48984 6.0815,-11.16507 1.4096,-1.67523 2.5629,-3.46134 2.5629,-3.96915 C 1147,245.36031 975.66536,245 707.96482,245 H 268.92963 l 1.1921,2.25 c 0.65566,1.2375 49.77804,86.4 109.16085,189.25 59.38281,102.85 109.24603,190.18458 110.80715,194.07684 7.61476,18.98551 6.15587,38.29495 -4.41998,58.50149 -1.84856,3.53192 -51.13049,89.14657 -109.51539,190.25477 C 317.76946,980.44131 270,1063.3538 270,1063.5831 270,1063.8124 467.36776,1064 708.59502,1064 H 1147.19 l -2.7303,-4.75 c -1.5017,-2.6125 -3.5045,-5.65 -4.4508,-6.75 -6.2333,-7.2462 -10.9686,-22.5452 -10.9941,-35.5201 -0.015,-7.7672 2.6036,-19.5632 5.7645,-25.96472 11.7133,-23.72192 38.2055,-38.0287 63.0211,-34.03381 12.5416,2.01898 23.9679,7.16636 32.2873,14.54502 5.5738,4.94346 11.7953,12.95432 14.0806,18.1302 1.1762,2.66388 14.7547,26.66841 30.1746,53.34341 15.4199,26.675 29.3437,51.1832 30.9419,54.4627 16.8663,34.6096 -0.01,74.8712 -36.5703,87.255 L 1260.5,1187.5 710,1187.6288 c -302.775,0.071 -552.80343,-0.2103 -555.61873,-0.6248 z M 20.332455,1102.2098 C 7.4705435,1097.6135 0,1087.2064 0,1073.885 0,1066.7461 2.1701869,1060.7658 8.742494,1049.7933 30.994978,1012.6429 235.44655,657.05145 235.44615,655.5 235.44574,653.88554 22.490023,283.69819 4.9290534,254.78517 L 0,246.6698 0,237.15063 C 0,225.601 1.7824289,221.17913 9.0843195,214.6141 14.994461,209.30037 21.189873,207 29.590766,207 c 8.437465,0 17.179914,4.42988 22.699579,11.50208 3.29785,4.22545 238.615945,410.64591 246.879825,426.38884 3.85142,7.33709 3.85174,13.87978 0.001,21.21816 -1.55585,2.96501 -55.28518,96.15278 -119.3985,207.08394 -64.11332,110.93116 -118.500306,205.19048 -120.859962,209.46508 -2.359656,4.2747 -6.129567,9.6114 -8.377581,11.8594 -8.308409,8.3084 -20.085244,11.3078 -30.202682,7.6923 z M 881.5,904.40815 C 853.82747,901.62224 838.62567,898.62282 819,892.07644 780.53779,879.24692 748.69404,859.6525 720.52077,831.47923 680.75928,791.71775 656.3139,741.42263 648.84014,684 c -1.59282,-12.23806 -1.59282,-45.76194 0,-58 7.47376,-57.42263 31.91914,-107.71775 71.68063,-147.47923 39.76148,-39.76149 90.0566,-64.20687 147.47923,-71.68063 12.23806,-1.59282 45.76194,-1.59282 58,0 57.42263,7.47376 107.7177,31.91914 147.4792,71.68063 39.7615,39.76148 64.2069,90.0566 71.6807,147.47923 1.5928,12.23806 1.5928,45.76194 0,58 -7.4738,57.42263 -31.9192,107.71775 -71.6807,147.47923 -39.4833,39.48335 -90.63805,64.45513 -146.4792,71.50555 -9.1327,1.15308 -38.92677,2.08513 -45.5,1.42337 z M 913.10615,702.1535 c 14.29872,-4.96538 25.80724,-16.40144 31.10059,-30.90477 1.63264,-4.4733 2.09814,-8.07829 2.09814,-16.24873 0,-8.17044 -0.4655,-11.77543 -2.09814,-16.24873 -5.27043,-14.44051 -16.55404,-25.6902 -31.10059,-31.00706 -4.32113,-1.57941 -8.01292,-2.04909 -16.10615,-2.04909 -8.09323,0 -11.78502,0.46968 -16.10615,2.04909 -14.54655,5.31686 -25.83016,16.56655 -31.10059,31.00706 -2.94452,8.06772 -2.96923,24.36551 -0.0491,32.35488 6.23298,17.05296 19.89425,28.96473 37.75579,32.92069 5.93786,1.31512 19.22337,0.34315 25.60615,-1.87334 z" />
-                </g>
-              </svg>
-            </div>
-            <p>西隈（ニシグマ）</p>
-          </div>
-          <p>主に活動しているのはこっち。</p>
-          <p>2026年2月15日、アイコン変えてみた。というのも、少佐.exeのアイコンは、6年くらい前にPublisherで作ったアイコンなんだけれども、元データが行方不明になったので、新たに作った次第。</p>
-          <p>「Σ」をモチーフに少佐.exeのアイコンの目を拝借。アイコンってその人の顔だから、あまりにも違いすぎると嫌だったので、面影を残してみた。</p>
-          <p>FADがないなった今、こっちの名義で色々やっていこうと思っている。</p>
-        </div>
-        <div class="major_exe">
-          <div class="about-me img-frame">
-            <div class="icon major_icon_div">
-              <img src="{{ 'image/index/major_exe.svg' | relative_url }}" class="major_icon" alt="少佐.exeのアイコン">
-            </div>
-            <p>少佐.exe（少佐.exe）</p>
-          </div>
-          <p>前述のFADサーバーを本格的に始めるときに名義を分けたくなった（詳しく言うと、YouTubeアカウントとか作るのに、専用があったほうが都合が良いということで）作られた名義。</p>
-          <p>友人（ホウプ）に作ってもらったマイクラスキンが軍人を意識して作ってもらったので、当時ハマっていた『幼女戦記』のターニャが少佐だし、少佐にしようと思い、命名。</p>
-          <p>しかし、一般名詞すぎて検索とかに引っかからない懸念が出たので、展開からexeをつけてみただけの名義です。</p>
-          <p>ちなみにこのアカウントは手元になかったので、Googleアカウントのアイコンソースから拾ってきた。</p>
-        </div>
+  <li>C++</li>
+  <li>Java（Minecraftプラグインで）</li>
+  <li>Python</li>
+  <li>C#（Unity）</li>
+  <li>JavaScript</li>
+  <li>HTML/CSS</li>
+</ul>
+<h2>西隈ってなんなの？</h2>
+<p>西隈はもともと「24s」って名乗ってたが、Discordで呼ばれることが多くなり、「にじゅうよんえす」はあまりに言いにくいので、発音しやすい名前にしようということで決めました。</p>
+<p>「24」を「にし」と読ませ、「s」をsの字の元となった「Σ（シグマ）」と読むことで「にししぐま」→「にしぐま」となりました。</p>
+<h2>西隈と少佐.exe</h2>
+<p>西隈は現在、2つの名義を持っています。</p>
+<p>とはいっても、少佐.exe名義はあんまり使ってない上に、割当も結構テキトー。</p>
+<div class="meigi">
+  <div class="nisigma">
+    <div class="about-me img-frame">
+      <div class="icon">
+        <svg version="1.1" viewBox="0 0 1313 1313" xmlns="http://www.w3.org/2000/svg"
+          xmlns:svg="http://www.w3.org/2000/svg">
+          <g>
+            <path style="fill:#f9f9f9"
+              d="m 154.38127,1187.004 c -13.71496,-2.0192 -29.01092,-10.2155 -37.89002,-20.3033 -6.00908,-6.8271 -11.91894,-18.7415 -14.05192,-28.3288 -3.59987,-16.1807 0.24614,-35.1491 9.86894,-48.6733 2.42575,-3.4092 60.04379,-102.5657 128.04008,-220.3477 L 363.97798,655.20179 239.34849,439.3509 C 170.80227,320.6329 113.70756,222.15 112.47136,220.5 c -3.80708,-5.08143 -7.51204,-13.33915 -9.5368,-21.25585 -5.063792,-19.79926 0.3663,-40.91533 14.37795,-55.91166 7.53175,-8.06107 15.05083,-12.97908 25.64332,-16.77257 L 151.5,123.5 h 555 555 l 8.5442,3.05992 c 10.5925,3.79349 18.1115,8.7115 25.6433,16.77257 16.5062,17.66624 20.7935,43.14068 11.1076,65.99974 -1.2043,2.84227 -13.6367,24.96777 -27.6276,49.16777 -13.9908,24.2 -27.4437,48.0064 -29.8952,52.90312 -3.461,6.91308 -6.1689,10.60341 -12.1148,16.50995 -13.1025,13.0158 -27.6039,18.736 -45.0844,17.78394 -5.2652,-0.28676 -10.2481,-0.70835 -11.0731,-0.93686 -13.2691,-3.67534 -21.921,-8.62278 -30.6531,-17.52847 -16.9288,-17.26539 -21.7224,-43.71892 -11.9913,-66.17419 1.9352,-4.46556 4.6719,-9.48984 6.0815,-11.16507 1.4096,-1.67523 2.5629,-3.46134 2.5629,-3.96915 C 1147,245.36031 975.66536,245 707.96482,245 H 268.92963 l 1.1921,2.25 c 0.65566,1.2375 49.77804,86.4 109.16085,189.25 59.38281,102.85 109.24603,190.18458 110.80715,194.07684 7.61476,18.98551 6.15587,38.29495 -4.41998,58.50149 -1.84856,3.53192 -51.13049,89.14657 -109.51539,190.25477 C 317.76946,980.44131 270,1063.3538 270,1063.5831 270,1063.8124 467.36776,1064 708.59502,1064 H 1147.19 l -2.7303,-4.75 c -1.5017,-2.6125 -3.5045,-5.65 -4.4508,-6.75 -6.2333,-7.2462 -10.9686,-22.5452 -10.9941,-35.5201 -0.015,-7.7672 2.6036,-19.5632 5.7645,-25.96472 11.7133,-23.72192 38.2055,-38.0287 63.0211,-34.03381 12.5416,2.01898 23.9679,7.16636 32.2873,14.54502 5.5738,4.94346 11.7953,12.95432 14.0806,18.1302 1.1762,2.66388 14.7547,26.66841 30.1746,53.34341 15.4199,26.675 29.3437,51.1832 30.9419,54.4627 16.8663,34.6096 -0.01,74.8712 -36.5703,87.255 L 1260.5,1187.5 710,1187.6288 c -302.775,0.071 -552.80343,-0.2103 -555.61873,-0.6248 z M 20.332455,1102.2098 C 7.4705435,1097.6135 0,1087.2064 0,1073.885 0,1066.7461 2.1701869,1060.7658 8.742494,1049.7933 30.994978,1012.6429 235.44655,657.05145 235.44615,655.5 235.44574,653.88554 22.490023,283.69819 4.9290534,254.78517 L 0,246.6698 0,237.15063 C 0,225.601 1.7824289,221.17913 9.0843195,214.6141 14.994461,209.30037 21.189873,207 29.590766,207 c 8.437465,0 17.179914,4.42988 22.699579,11.50208 3.29785,4.22545 238.615945,410.64591 246.879825,426.38884 3.85142,7.33709 3.85174,13.87978 0.001,21.21816 -1.55585,2.96501 -55.28518,96.15278 -119.3985,207.08394 -64.11332,110.93116 -118.500306,205.19048 -120.859962,209.46508 -2.359656,4.2747 -6.129567,9.6114 -8.377581,11.8594 -8.308409,8.3084 -20.085244,11.3078 -30.202682,7.6923 z M 881.5,904.40815 C 853.82747,901.62224 838.62567,898.62282 819,892.07644 780.53779,879.24692 748.69404,859.6525 720.52077,831.47923 680.75928,791.71775 656.3139,741.42263 648.84014,684 c -1.59282,-12.23806 -1.59282,-45.76194 0,-58 7.47376,-57.42263 31.91914,-107.71775 71.68063,-147.47923 39.76148,-39.76149 90.0566,-64.20687 147.47923,-71.68063 12.23806,-1.59282 45.76194,-1.59282 58,0 57.42263,7.47376 107.7177,31.91914 147.4792,71.68063 39.7615,39.76148 64.2069,90.0566 71.6807,147.47923 1.5928,12.23806 1.5928,45.76194 0,58 -7.4738,57.42263 -31.9192,107.71775 -71.6807,147.47923 -39.4833,39.48335 -90.63805,64.45513 -146.4792,71.50555 -9.1327,1.15308 -38.92677,2.08513 -45.5,1.42337 z M 913.10615,702.1535 c 14.29872,-4.96538 25.80724,-16.40144 31.10059,-30.90477 1.63264,-4.4733 2.09814,-8.07829 2.09814,-16.24873 0,-8.17044 -0.4655,-11.77543 -2.09814,-16.24873 -5.27043,-14.44051 -16.55404,-25.6902 -31.10059,-31.00706 -4.32113,-1.57941 -8.01292,-2.04909 -16.10615,-2.04909 -8.09323,0 -11.78502,0.46968 -16.10615,2.04909 -14.54655,5.31686 -25.83016,16.56655 -31.10059,31.00706 -2.94452,8.06772 -2.96923,24.36551 -0.0491,32.35488 6.23298,17.05296 19.89425,28.96473 37.75579,32.92069 5.93786,1.31512 19.22337,0.34315 25.60615,-1.87334 z" />
+          </g>
+        </svg>
       </div>
-      <h2>動いてるアカウント</h2>
-      <div class="account">
-        <div class="account-logo account-logo-twitter AweSomeFont-Brands"></div>
-        <p class="account-name">
-          <a href="https://x.com/nisigma_200" target="_blank" rel="noopener">
-            <span class="a_blank name">@Nisgma_200</span>
-          </a>
-          <span class="explanation">メインアカウント<br>別に見なくてもいいアカウント</span>
-        </p>
+      <p>西隈（ニシグマ）</p>
+    </div>
+    <p>主に活動しているのはこっち。</p>
+    <p>2026年2月15日、アイコン変えてみた。というのも、少佐.exeのアイコンは、6年くらい前にPublisherで作ったアイコンなんだけれども、元データが行方不明になったので、新たに作った次第。</p>
+    <p>「Σ」をモチーフに少佐.exeのアイコンの目を拝借。アイコンってその人の顔だから、あまりにも違いすぎると嫌だったので、面影を残してみた。</p>
+    <p>FADがないなった今、こっちの名義で色々やっていこうと思っている。</p>
+  </div>
+  <div class="major_exe">
+    <div class="about-me img-frame">
+      <div class="icon major_icon_div">
+        <img src="{{ 'image/index/major_exe.svg' | relative_url }}" class="major_icon" alt="少佐.exeのアイコン">
       </div>
-      <div class="account">
-        <div class="account-logo account-logo-twitter AweSomeFont-Brands"></div>
-        <p class="account-name">
-          <a href="https://x.com/Nisigma_200_Sub" target="_blank" rel="noopener">
-            <span class="a_blank name">@Nisigma_200_Sub</span>
-          </a>
-          <span class="explanation">サブアカウント<br>リア友専用アカウント</span>
-        </p>
-      </div>
-      <div class="account">
-        <div class="account-logo account-logo-discord AweSomeFont-Brands"></div>
-        <p class="account-name">
-          <span class="name">nisigma200（439632632804802581）</span>
-          <span class="explanation">Discordアカウント</span>
-        </p>
-      </div>
-      <div class="account">
-        <div class="account-logo account-logo-github AweSomeFont-Brands"></div>
-        <p class="account-name">
-          <a href="https://github.com/Nisigma200" target="_blank" rel="noopener">
-            <span class="a_blank name">Nisigma200</span>
-          </a>
-          <span class="explanation">GitHubアカウント</span>
-        </p>
-      </div>
-      <div class="account">
-        <div class="account-logo account-logo-qiita"></div>
-        <p class="account-name">
-          <a href="https://qiita.com/nisigma" target="_blank" rel="noopener">
-            <span class="a_blank name">@nisigma</span>
-          </a>
-          <span class="explanation">Qiitaアカウント</span>
-        </p>
-      </div>
-      <div class="account">
-        <div class="account-logo account-logo-youtube AweSomeFont-Brands"></div>
-        <p class="account-name">
-          <a href="https://www.youtube.com/channel/UCoOy_Fl2Xw-z3GYITcmHlew" target="_blank" rel="noopener">
-            <span class="a_blank name">西隈</span>
-          </a>
-          <span class="explanation">新YouTubeアカウント。使用用途は決めてない。</span>
-        </p>
-      </div>
-      <div class="account">
-        <div class="account-logo account-logo-twitter AweSomeFont-Brands"></div>
-        <p class="account-name">
-          <a href="https://x.com/nisigma_200" target="_blank" rel="noopener">
-            <span class="a_blank name">@Nisgma_200</span>
-          </a>
-          <span class="explanation">メインアカウント<br>別に見なくてもいいアカウント</span>
-        </p>
-      </div>
+      <p>少佐.exe（少佐.exe）</p>
+    </div>
+    <p>前述のFADサーバーを本格的に始めるときに名義を分けたくなった（詳しく言うと、YouTubeアカウントとか作るのに、専用があったほうが都合が良いということで）作られた名義。</p>
+    <p>友人（ホウプ）に作ってもらったマイクラスキンが軍人を意識して作ってもらったので、当時ハマっていた『幼女戦記』のターニャが少佐だし、少佐にしようと思い、命名。</p>
+    <p>しかし、一般名詞すぎて検索とかに引っかからない懸念が出たので、展開からexeをつけてみただけの名義です。</p>
+    <p>ちなみにこのアカウントは手元になかったので、Googleアカウントのアイコンソースから拾ってきた。</p>
+  </div>
+</div>
+<h2>動いてるアカウント</h2>
+<div class="account">
+  <div class="account-logo account-logo-twitter AweSomeFont-Brands"></div>
+  <p class="account-name">
+    <a href="https://x.com/nisigma_200" target="_blank" rel="noopener">
+      <span class="a_blank name">@Nisgma_200</span>
+    </a>
+    <span class="explanation">メインアカウント<br>別に見なくてもいいアカウント</span>
+  </p>
+</div>
+<div class="account">
+  <div class="account-logo account-logo-twitter AweSomeFont-Brands"></div>
+  <p class="account-name">
+    <a href="https://x.com/Nisigma_200_Sub" target="_blank" rel="noopener">
+      <span class="a_blank name">@Nisigma_200_Sub</span>
+    </a>
+    <span class="explanation">サブアカウント<br>リア友専用アカウント</span>
+  </p>
+</div>
+<div class="account">
+  <div class="account-logo account-logo-discord AweSomeFont-Brands"></div>
+  <p class="account-name">
+    <span class="name">nisigma200（439632632804802581）</span>
+    <span class="explanation">Discordアカウント</span>
+  </p>
+</div>
+<div class="account">
+  <div class="account-logo account-logo-github AweSomeFont-Brands"></div>
+  <p class="account-name">
+    <a href="https://github.com/Nisigma200" target="_blank" rel="noopener">
+      <span class="a_blank name">Nisigma200</span>
+    </a>
+    <span class="explanation">GitHubアカウント</span>
+  </p>
+</div>
+<div class="account">
+  <div class="account-logo account-logo-qiita"></div>
+  <p class="account-name">
+    <a href="https://qiita.com/nisigma" target="_blank" rel="noopener">
+      <span class="a_blank name">@nisigma</span>
+    </a>
+    <span class="explanation">Qiitaアカウント</span>
+  </p>
+</div>
+<div class="account">
+  <div class="account-logo account-logo-youtube AweSomeFont-Brands"></div>
+  <p class="account-name">
+    <a href="https://www.youtube.com/channel/UCoOy_Fl2Xw-z3GYITcmHlew" target="_blank" rel="noopener">
+      <span class="a_blank name">西隈</span>
+    </a>
+    <span class="explanation">新YouTubeアカウント。使用用途は決めてない。</span>
+  </p>
+</div>
+<div class="account">
+  <div class="account-logo account-logo-twitter AweSomeFont-Brands"></div>
+  <p class="account-name">
+    <a href="https://x.com/nisigma_200" target="_blank" rel="noopener">
+      <span class="a_blank name">@Nisgma_200</span>
+    </a>
+    <span class="explanation">メインアカウント<br>別に見なくてもいいアカウント</span>
+  </p>
+</div>
 
-      <h2>共同管理</h2>
-      <div class="account">
-        <div class="account-logo account-logo-ohoo"></div>
-        <p class="account-name">
-          <a href="https://ochitehajimari-ochiteowaru.github.io/" target="_blank" rel="noopener">
-            <span class="a_blank name">『おちてはじまり、おちておわる』公式サイト</span>
-          </a>
-          <span class="explanation">ゲーム『おちてはじまり、おちておわる』の公式サイト。<br>
-            西隈が作成、管理、運営担当</span>
-        </p>
-      </div>
-      <div class="account">
-        <div class="account-logo account-logo-twitter AweSomeFont-Brands"></div>
-        <p class="account-name">
-          <a href="https://x.com/ochite_H_O" target="_blank" rel="noopener">
-            <span class="a_blank name">@ochite_H_O</span>
-          </a>
-          <span class="explanation">ゲーム『おちてはじまり、おちておわる』公式アカウント</span>
-        </p>
-      </div>
+<h2>共同管理</h2>
+<div class="account">
+  <div class="account-logo account-logo-ohoo"></div>
+  <p class="account-name">
+    <a href="https://ochitehajimari-ochiteowaru.github.io/" target="_blank" rel="noopener">
+      <span class="a_blank name">『おちてはじまり、おちておわる』公式サイト</span>
+    </a>
+    <span class="explanation">ゲーム『おちてはじまり、おちておわる』の公式サイト。<br>
+      西隈が作成、管理、運営担当</span>
+  </p>
+</div>
+<div class="account">
+  <div class="account-logo account-logo-twitter AweSomeFont-Brands"></div>
+  <p class="account-name">
+    <a href="https://x.com/ochite_H_O" target="_blank" rel="noopener">
+      <span class="a_blank name">@ochite_H_O</span>
+    </a>
+    <span class="explanation">ゲーム『おちてはじまり、おちておわる』公式アカウント</span>
+  </p>
+</div>
 
-      <h2>その他のアカウント</h2>
-      <div class="acbox">
-        <input id="ac-1" type="checkbox">
-        <label for="ac-1">見る</label>
-        <div class="acbox-under">
-          <h3 class="normal_tytle">動いてないけど管理はしてるアカウント</h3>
-          <h3>西隈のもう使ってないアカウント</h3>
-          <div class="account">
-            <div class="account-logo account-logo-twitter AweSomeFont-Brands"></div>
-            <p class="account-name">
-              <a href="https://x.com/Major__exe" target="_blank" rel="noopener">
-                <span class="a_blank name">@Major__exe</span>
-              </a>
-              <span
-                class="explanation">名義を西隈に一本化しようと思ったけど、このアカウントのユーザー名が取られたら、色んなところに貼ってるTwitterアカウントのURLがおかしくなるからと思って取り直した延命用アカウント。<br>ちゃんと本物です。</span>
-            </p>
-          </div>
-          <div class="account">
-            <div class="account-logo account-logo-discord AweSomeFont-Brands"></div>
-            <p class="account-name">
-              <span class="name">major_exe（710377016398053446）</span>
-              <span class="explanation">Discordサブアカウント</span>
-            </p>
-          </div>
-          <div class="account">
-            <div class="account-logo account-logo-misskey"></div>
-            <p class="account-name">
-              <a href="https://misskey.io/@24s" target="_blank" rel="noopener">
-                <span class="a_blank name">@24s</span>
-              </a>
-              <span
-                class="explanation">いっとき超有名になって誰も移らず、Twitterと共に逝くことを決意したあのmisskey。<br>出たてでユーザー名取れたから、24sとかいう超短いユーザー名。</span>
-            </p>
-          </div>
-          <div class="account">
-            <div class="account-logo account-logo-misskey"></div>
-            <p class="account-name">
-              <a href="https://misskey.io/@Major_exe" target="_blank" rel="noopener">
-                <span class="a_blank name">@Major_exe</span>
-              </a>
-              <span class="explanation">サブアカ</span>
-            </p>
-          </div>
-          <div class="account">
-            <div class="account-logo account-logo-youtube AweSomeFont-Brands"></div>
-            <p class="account-name">
-              <a href="https://www.youtube.com/channel/UCTK8mNBz6xS_U81KIg79I2A" target="_blank" rel="noopener">
-                <span class="a_blank name">少佐.exe〈Major.exe〉 / 西隈</span>
-              </a>
-              <span class="explanation">無言Live映像とクソコラ動画の宝庫（宝とは言っていない。）</span>
-            </p>
-          </div>
-          <div class="account">
-            <div class="account-logo account-logo-twitch AweSomeFont-Brands"></div>
-            <p class="account-name">
-              <a href="https://www.twitch.tv/major_exe" target="_blank" rel="noopener">
-                <span class="a_blank name">Major_exe</span>
-              </a>
-              <span class="explanation">もう動く予定はないTwitch</span>
-            </p>
-          </div>
-          <div class="account">
-            <div class="account-logo account-logo-amazon AweSomeFont-Brands"></div>
-            <p class="account-name">
-              <a href="https://www.amazon.co.jp/hz/wishlist/ls/3UNE8WOTOA8RG?ref_=wl_share" target="_blank"
-                rel="noopener">
-                <span class="a_blank name">ほしいものリスト</span>
-              </a>
-              <span class="explanation">6年前にほしかったもの</span>
-            </p>
-          </div>
-          <div class="account">
-            <div class="account-logo account-logo-github AweSomeFont-Brands"></div>
-            <p class="account-name">
-              <a href="https://github.com/Majorexe-Nishiguma" target="_blank" rel="noopener">
-                <span class="a_blank name">Majorexe-Nishiguma</span>
-              </a>
-              <span
-                class="explanation">GitHubアカウント<br>本当に覚えていなかった。このサイトを作るのにパスワードマネージャー見てたら身に覚えのないユーザー名があってログインできた。<br>中身何もない。アイコンすら設定してなかったっぽい。<br>おそらく、FADホームページ作ろうとしてアカウント取得したけど、アカ分けたくなって使わなかったんじゃなかろうか……</span>
-            </p>
-          </div>
-          <h3>FAD関係</h3>
-          <div class="account">
-            <div class="account-logo account-logo-fad"></div>
-            <p class="account-name">
-              <a href="https://fadserver.github.io/FAD/" target="_blank" rel="noopener">
-                <span class="a_blank name">FAD公式サイト</span>
-              </a>
-              <span class="explanation">今は亡き、知る人ぞ知る「全自動<span
-                  class="torikesi">バグ</span>生成ダンジョン」の公式サイト<br>このサイトが雰囲気FAD公式サイトに似てるのは、ソースをコピペして使ってるから。</span>
-            </p>
-          </div>
-          <div class="account">
-            <div class="account-logo account-logo-github AweSomeFont-Brands"></div>
-            <p class="account-name">
-              <a href="https://github.com/FADserver" target="_blank" rel="noopener">
-                <span class="a_blank name">FADserver</span>
-              </a>
-              <span class="explanation">GitHubアカウント</span>
-            </p>
-          </div>
-          <div class="account">
-            <div class="account-logo account-logo-fad"></div>
-            <p class="account-name">
-              <a href="https://sites.google.com/view/fad-info/%E3%83%9B%E3%83%BC%E3%83%A0" target="_blank"
-                rel="noopener">
-                <span class="a_blank name">旧FAD公式サイト</span>
-              </a>
-              <span class="explanation">マジで何年前なんっていうサイト。生きてて感動した。</span>
-            </p>
-          </div>
-          <div class="account">
-            <div class="account-logo account-logo-twitter AweSomeFont-Brands"></div>
-            <p class="account-name">
-              <a href="https://x.com/FADserver" target="_blank" rel="noopener">
-                <span class="a_blank name">@FADserver</span>
-              </a>
-              <span class="explanation">FAD用アカウント<br>メインのFAD用アカウント</span>
-            </p>
-          </div>
-          <div class="account">
-            <div class="account-logo account-logo-twitter AweSomeFont-Brands"></div>
-            <p class="account-name">
-              <a href="https://x.com/FADserver_talk" target="_blank" rel="noopener">
-                <span class="a_blank name">@FADserver_talk</span>
-              </a>
-              <span class="explanation">FAD用アカウント<br>確か、FADのメンション付いたツイートに返信する用アカウントだったはず（2021年くらいの記憶）</span>
-            </p>
-          </div>
-          <div class="account">
-            <div class="account-logo account-logo-line AweSomeFont-Brands"></div>
-            <p class="account-name">
-              <a href="https://lin.ee/eZ3sGPj" target="_blank" rel="noopener">
-                <span class="a_blank name">FADserver公式LINE</span>
-              </a>
-              <span class="explanation">一応まだ友だち登録したら返答してくれるはず。<br>さすが大企業。何年も放置してるやつでも保持してくれてるっぽい。</span>
-            </p>
-          </div>
-          <div class="account">
-            <div class="account-logo account-logo-site AweSomeFont-Free"></div>
-            <p class="account-name">
-              <a href="https://minecraft.jp/servers/FAD.f5.si" target="_blank" rel="noopener">
-                <span class="a_blank name">Japan Minecraft Server</span>
-              </a>
-              <span class="explanation">まだHPがなかった時代に使ってたサーバー解放状況を知らせるサイト</span>
-            </p>
-          </div>
-          <div class="account">
-            <div class="account-logo account-logo-wiki AweSomeFont-Free"></div>
-            <p class="account-name">
-              <a href="https://minecraft.jp/servers/FAD.f5.si" target="_blank" rel="noopener">
-                <span class="a_blank name">FAD公式Wikiです！</span>
-              </a>
-              <span class="explanation">まだHPがなかった時代に使ってたホームページモドキ。GooglePageで表が作れなかったからこっちで作ってた気がする。</span>
-            </p>
-          </div>
-          <div class="account">
-            <div class="account-logo account-logo-wiki AweSomeFont-Free"></div>
-            <p class="account-name">
-              <a href="https://minecraft.jp/servers/FAD.f5.si" target="_blank" rel="noopener">
-                <span class="a_blank name">FAD公式掲示板です！</span>
-              </a>
-              <span class="explanation">確か、質問とか用に作ったけど使わなかった記憶。</span>
-            </p>
-          </div>
-          <h3 class="normal_tytle">西隈の管理下から離れているもの・不明なもの</h3>
-          <div class="account">
-            <div class="account-logo account-logo-site AweSomeFont-Free"></div>
-            <p class="account-name">
-              <a href="https://sites.google.com/view/thestoreofmanyroles" target="_blank" rel="noopener">
-                <span class="a_blank name">役職の多い料理店公式ホームページ</span>
-              </a>
-              <span
-                class="explanation">GoogleSiteで作ったホームページ。どのアカウントで作ったかわからなくなっちゃった。<br>もしかしたらホウプのアカウントで作ってたかも……？<br>何にせよ西隈はさわれないのでクレームは入れないでね。</span>
-            </p>
-          </div>
-          <div class="account">
-            <div class="account-logo account-logo-youtube AweSomeFont-Brands"></div>
-            <p class="account-name">
-              <a href="https://www.youtube.com/@novelknown3913" target="_blank" rel="noopener">
-                <span class="a_blank name">novel known</span>
-              </a>
-              <span class="explanation">西隈がロゴデザインした。<br>
-                たしか、このチャンネルの設定したのが西隈だから、もしかしたら、上の公式ホームページと同じGoogleアカウントだったかも……？<br>
-                こっちも管理下から離れてます。</span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <h2>Profile</h2>
-      <ul class="timeline">
-        <li>
-          <p class="timeline-date">██████</p>
-          <div class="timeline-content">
-            <h3>誕 生</h3>
-            <p>生まれる。</p>
-          </div>
-        </li>
-        <li>
-          <p class="timeline-date">幼稚園年中</p>
-          <div class="timeline-content">
-            <h3>書 道</h3>
-            <p>5歳から書道教室に通い始める。</p>
-          </div>
-        </li>
-        <li>
-          <p class="timeline-date">中学3年</p>
-          <div class="timeline-content">
-            <h3>書 道</h3>
-            <p>中学3年生でとある書道会の特待生になる。</p>
-          </div>
-        </li>
-        <li>
-          <time class="timeline-date" datetime="2019-08-07">2019/08/07</time>
-          <div class="timeline-content">
-            <h3>FADサーバー前身を創立</h3>
-            <p>
-              友人とFADサーバーの前身である███サーバーを建てる。<br>
-              このときはまだ、生活鯖とかミニゲーム鯖を含めた複合サーバーを模索していた。
-            </p>
-          </div>
-        </li>
-        <li>
-          <time class="timeline-date" datetime="2020-01-27">2020/01/27？</time>
-          <div class="timeline-content">
-            <h3>FADサーバーを設立</h3>
-            <p>
-              ███サーバーの一部門からFADサーバーを分離して作成。<br>
-              （現在、西隈のPCに保存してあるもっとも古いFADサーバー内フォルダのファイルの日付）
-            </p>
-          </div>
-        </li>
-        <li>
-          <time class="timeline-date" datetime="2020-03-15">2020/03/15</time>
-          <div class="timeline-content">
-            <h3>YouTube開設</h3>
-            <p>
-              西隈が少佐.exe名義で<a class="a_blank" href="https://www.youtube.com/channel/UCTK8mNBz6xS_U81KIg79I2A"
-                target="_blank" rel="noopener">YouTubeチャンネル</a>を作成。
-            </p>
-          </div>
-        </li>
-        <li>
-          <time class="timeline-date" datetime="2020-03-27">2020/03/27</time>
-          <div class="timeline-content">
-            <h3>プラグイン製作開始</h3>
-            <p>
-              FAD用プラグインの開発を開始。<br>
-              一般公開されている汎用的なプラグインでは実現できなかった挙動が設定可能に。<br>
-              ここで人生初めてプログラミングを書き始める。
-            </p>
-          </div>
-        </li>
-        <li>
-          <time class="timeline-date" datetime="2020-05-18">2020/05/18</time>
-          <div class="timeline-content">
-            <h3>旧FADサーバーホームページを作成</h3>
-            <p>
-              GoogleSiteを用いて作成。<br>
-              思うようにレイアウトが作れないので、作成時点で、HTML/CSSを用いた独自サイトの作成を検討。サーバー設置の観点で頓挫。
-            </p>
-          </div>
-        </li>
-        <li>
-          <time class="timeline-date" datetime="2020-07-07">2020/07/07</time>
-          <div class="timeline-content">
-            <h3>FADサーバー公式LINE誕生</h3>
-            <p>
-              <a class="a_blank" href="https://line.me/R/ti/p/%40633zpwok" target="_blank"
-                rel="noopener">FADサーバー公式LINE</a>を作成。<br>
-              初めてのツールを使った大規模広告。そこそこ凝って作った割には、あんまり使わなかった。旧ロゴで更新止まってる始末。
-            </p>
-          </div>
-        </li>
-        <li>
-          <time class="timeline-date" datetime="2020-12-11">2020/12/11</time>
-          <div class="timeline-content">
-            <h3>YouTubeに動画投稿開始</h3>
-            <p>YouTubeに動画投稿を開始。</p>
-          </div>
-        </li>
-        <li>
-          <time class="timeline-date" datetime="2021-07-24">2021/07/24</time>
-          <div class="timeline-content">
-            <h3>新ホームページ作成開始</h3>
-            <p>
-              <a class="a_blank" href="https://fadserver.github.io/FAD/" target="_blank"
-                rel="noopener">新FAD公式ホームページ</a>作成開始。<br>
-              GitHub Pagesが無料でサーバーを持てると知って、作成開始。HTML/CSS、JSを学び始める。<br>
-              コレを作成して以降はAIが出てきてしまい、自分で0から作成することがなくなっちゃった。便利な半面、新しい事始めようとすると、あの自分の力だけで書けたときの嬉しさが味わえず、悲しい気持ちと反面、便利を享受できて複雑。
-            </p>
-          </div>
-        </li>
-        <li>
-          <time class="timeline-date" datetime="2022-02-04">2022/02/04</time>
-          <div class="timeline-content">
-            <h3>ロゴ変更</h3>
-            <p>
-              <a class="a_blank" href="https://fadserver.github.io/FAD/news/release/2022-2-4" target="_blank"
-                rel="noopener">FADサーバーのロゴを変更</a>した。<br>
-              初めてのロゴ、アイコン作成。
-            </p>
-          </div>
-        </li>
-        <li>
-          <p class="timeline-date">2025/██/██</p>
-          <div class="timeline-content">
-            <h3>師範合格</h3>
-            <p>とある書道会の師範になる。</p>
-          </div>
-        </li>
-        <li>
-          <time class="timeline-date" datetime="2026-06-01">2026/06/01</time>
-          <div class="timeline-content">
-            <h3><a class="a_blank" href="https://www.mainichishodo.org/syodoten/" target="_blank"
-                rel="noopener">第77回毎日書道展</a>で入選</h3>
-            <p>初出品で初入選を果たす。</p>
-          </div>
-        </li>
-      </ul>
+<h2>その他のアカウント</h2>
+<div class="acbox">
+  <input id="ac-1" type="checkbox">
+  <label for="ac-1">見る</label>
+  <div class="acbox-under">
+    <h3 class="normal_tytle">動いてないけど管理はしてるアカウント</h3>
+    <h3>西隈のもう使ってないアカウント</h3>
+    <div class="account">
+      <div class="account-logo account-logo-twitter AweSomeFont-Brands"></div>
+      <p class="account-name">
+        <a href="https://x.com/Major__exe" target="_blank" rel="noopener">
+          <span class="a_blank name">@Major__exe</span>
+        </a>
+        <span
+          class="explanation">名義を西隈に一本化しようと思ったけど、このアカウントのユーザー名が取られたら、色んなところに貼ってるTwitterアカウントのURLがおかしくなるからと思って取り直した延命用アカウント。<br>ちゃんと本物です。</span>
+      </p>
+    </div>
+    <div class="account">
+      <div class="account-logo account-logo-discord AweSomeFont-Brands"></div>
+      <p class="account-name">
+        <span class="name">major_exe（710377016398053446）</span>
+        <span class="explanation">Discordサブアカウント</span>
+      </p>
+    </div>
+    <div class="account">
+      <div class="account-logo account-logo-misskey"></div>
+      <p class="account-name">
+        <a href="https://misskey.io/@24s" target="_blank" rel="noopener">
+          <span class="a_blank name">@24s</span>
+        </a>
+        <span
+          class="explanation">いっとき超有名になって誰も移らず、Twitterと共に逝くことを決意したあのmisskey。<br>出たてでユーザー名取れたから、24sとかいう超短いユーザー名。</span>
+      </p>
+    </div>
+    <div class="account">
+      <div class="account-logo account-logo-misskey"></div>
+      <p class="account-name">
+        <a href="https://misskey.io/@Major_exe" target="_blank" rel="noopener">
+          <span class="a_blank name">@Major_exe</span>
+        </a>
+        <span class="explanation">サブアカ</span>
+      </p>
+    </div>
+    <div class="account">
+      <div class="account-logo account-logo-youtube AweSomeFont-Brands"></div>
+      <p class="account-name">
+        <a href="https://www.youtube.com/channel/UCTK8mNBz6xS_U81KIg79I2A" target="_blank" rel="noopener">
+          <span class="a_blank name">少佐.exe〈Major.exe〉 / 西隈</span>
+        </a>
+        <span class="explanation">無言Live映像とクソコラ動画の宝庫（宝とは言っていない。）</span>
+      </p>
+    </div>
+    <div class="account">
+      <div class="account-logo account-logo-twitch AweSomeFont-Brands"></div>
+      <p class="account-name">
+        <a href="https://www.twitch.tv/major_exe" target="_blank" rel="noopener">
+          <span class="a_blank name">Major_exe</span>
+        </a>
+        <span class="explanation">もう動く予定はないTwitch</span>
+      </p>
+    </div>
+    <div class="account">
+      <div class="account-logo account-logo-amazon AweSomeFont-Brands"></div>
+      <p class="account-name">
+        <a href="https://www.amazon.co.jp/hz/wishlist/ls/3UNE8WOTOA8RG?ref_=wl_share" target="_blank" rel="noopener">
+          <span class="a_blank name">ほしいものリスト</span>
+        </a>
+        <span class="explanation">6年前にほしかったもの</span>
+      </p>
+    </div>
+    <div class="account">
+      <div class="account-logo account-logo-github AweSomeFont-Brands"></div>
+      <p class="account-name">
+        <a href="https://github.com/Majorexe-Nishiguma" target="_blank" rel="noopener">
+          <span class="a_blank name">Majorexe-Nishiguma</span>
+        </a>
+        <span
+          class="explanation">GitHubアカウント<br>本当に覚えていなかった。このサイトを作るのにパスワードマネージャー見てたら身に覚えのないユーザー名があってログインできた。<br>中身何もない。アイコンすら設定してなかったっぽい。<br>おそらく、FADホームページ作ろうとしてアカウント取得したけど、アカ分けたくなって使わなかったんじゃなかろうか……</span>
+      </p>
+    </div>
+    <h3>FAD関係</h3>
+    <div class="account">
+      <div class="account-logo account-logo-fad"></div>
+      <p class="account-name">
+        <a href="https://fadserver.github.io/FAD/" target="_blank" rel="noopener">
+          <span class="a_blank name">FAD公式サイト</span>
+        </a>
+        <span class="explanation">今は亡き、知る人ぞ知る「全自動<span
+            class="torikesi">バグ</span>生成ダンジョン」の公式サイト<br>このサイトが雰囲気FAD公式サイトに似てるのは、ソースをコピペして使ってるから。</span>
+      </p>
+    </div>
+    <div class="account">
+      <div class="account-logo account-logo-github AweSomeFont-Brands"></div>
+      <p class="account-name">
+        <a href="https://github.com/FADserver" target="_blank" rel="noopener">
+          <span class="a_blank name">FADserver</span>
+        </a>
+        <span class="explanation">GitHubアカウント</span>
+      </p>
+    </div>
+    <div class="account">
+      <div class="account-logo account-logo-fad"></div>
+      <p class="account-name">
+        <a href="https://sites.google.com/view/fad-info/%E3%83%9B%E3%83%BC%E3%83%A0" target="_blank" rel="noopener">
+          <span class="a_blank name">旧FAD公式サイト</span>
+        </a>
+        <span class="explanation">マジで何年前なんっていうサイト。生きてて感動した。</span>
+      </p>
+    </div>
+    <div class="account">
+      <div class="account-logo account-logo-twitter AweSomeFont-Brands"></div>
+      <p class="account-name">
+        <a href="https://x.com/FADserver" target="_blank" rel="noopener">
+          <span class="a_blank name">@FADserver</span>
+        </a>
+        <span class="explanation">FAD用アカウント<br>メインのFAD用アカウント</span>
+      </p>
+    </div>
+    <div class="account">
+      <div class="account-logo account-logo-twitter AweSomeFont-Brands"></div>
+      <p class="account-name">
+        <a href="https://x.com/FADserver_talk" target="_blank" rel="noopener">
+          <span class="a_blank name">@FADserver_talk</span>
+        </a>
+        <span class="explanation">FAD用アカウント<br>確か、FADのメンション付いたツイートに返信する用アカウントだったはず（2021年くらいの記憶）</span>
+      </p>
+    </div>
+    <div class="account">
+      <div class="account-logo account-logo-line AweSomeFont-Brands"></div>
+      <p class="account-name">
+        <a href="https://lin.ee/eZ3sGPj" target="_blank" rel="noopener">
+          <span class="a_blank name">FADserver公式LINE</span>
+        </a>
+        <span class="explanation">一応まだ友だち登録したら返答してくれるはず。<br>さすが大企業。何年も放置してるやつでも保持してくれてるっぽい。</span>
+      </p>
+    </div>
+    <div class="account">
+      <div class="account-logo account-logo-site AweSomeFont-Free"></div>
+      <p class="account-name">
+        <a href="https://minecraft.jp/servers/FAD.f5.si" target="_blank" rel="noopener">
+          <span class="a_blank name">Japan Minecraft Server</span>
+        </a>
+        <span class="explanation">まだHPがなかった時代に使ってたサーバー解放状況を知らせるサイト</span>
+      </p>
+    </div>
+    <div class="account">
+      <div class="account-logo account-logo-wiki AweSomeFont-Free"></div>
+      <p class="account-name">
+        <a href="https://minecraft.jp/servers/FAD.f5.si" target="_blank" rel="noopener">
+          <span class="a_blank name">FAD公式Wikiです！</span>
+        </a>
+        <span class="explanation">まだHPがなかった時代に使ってたホームページモドキ。GooglePageで表が作れなかったからこっちで作ってた気がする。</span>
+      </p>
+    </div>
+    <div class="account">
+      <div class="account-logo account-logo-wiki AweSomeFont-Free"></div>
+      <p class="account-name">
+        <a href="https://minecraft.jp/servers/FAD.f5.si" target="_blank" rel="noopener">
+          <span class="a_blank name">FAD公式掲示板です！</span>
+        </a>
+        <span class="explanation">確か、質問とか用に作ったけど使わなかった記憶。</span>
+      </p>
+    </div>
+    <h3 class="normal_tytle">西隈の管理下から離れているもの・不明なもの</h3>
+    <div class="account">
+      <div class="account-logo account-logo-site AweSomeFont-Free"></div>
+      <p class="account-name">
+        <a href="https://sites.google.com/view/thestoreofmanyroles" target="_blank" rel="noopener">
+          <span class="a_blank name">役職の多い料理店公式ホームページ</span>
+        </a>
+        <span
+          class="explanation">GoogleSiteで作ったホームページ。どのアカウントで作ったかわからなくなっちゃった。<br>もしかしたらホウプのアカウントで作ってたかも……？<br>何にせよ西隈はさわれないのでクレームは入れないでね。</span>
+      </p>
+    </div>
+    <div class="account">
+      <div class="account-logo account-logo-youtube AweSomeFont-Brands"></div>
+      <p class="account-name">
+        <a href="https://www.youtube.com/@novelknown3913" target="_blank" rel="noopener">
+          <span class="a_blank name">novel known</span>
+        </a>
+        <span class="explanation">西隈がロゴデザインした。<br>
+          たしか、このチャンネルの設定したのが西隈だから、もしかしたら、上の公式ホームページと同じGoogleアカウントだったかも……？<br>
+          こっちも管理下から離れてます。</span>
+      </p>
     </div>
   </div>
 </div>
+<h2>Profile</h2>
+<ul class="timeline">
+  <li>
+    <p class="timeline-date">██████</p>
+    <div class="timeline-content">
+      <h3>誕 生</h3>
+      <p>生まれる。</p>
+    </div>
+  </li>
+  <li>
+    <p class="timeline-date">幼稚園年中</p>
+    <div class="timeline-content">
+      <h3>書 道</h3>
+      <p>5歳から書道教室に通い始める。</p>
+    </div>
+  </li>
+  <li>
+    <p class="timeline-date">中学3年</p>
+    <div class="timeline-content">
+      <h3>書 道</h3>
+      <p>中学3年生でとある書道会の特待生になる。</p>
+    </div>
+  </li>
+  <li>
+    <time class="timeline-date" datetime="2019-08-07">2019/08/07</time>
+    <div class="timeline-content">
+      <h3>FADサーバー前身を創立</h3>
+      <p>
+        友人とFADサーバーの前身である███サーバーを建てる。<br>
+        このときはまだ、生活鯖とかミニゲーム鯖を含めた複合サーバーを模索していた。
+      </p>
+    </div>
+  </li>
+  <li>
+    <time class="timeline-date" datetime="2020-01-27">2020/01/27？</time>
+    <div class="timeline-content">
+      <h3>FADサーバーを設立</h3>
+      <p>
+        ███サーバーの一部門からFADサーバーを分離して作成。<br>
+        （現在、西隈のPCに保存してあるもっとも古いFADサーバー内フォルダのファイルの日付）
+      </p>
+    </div>
+  </li>
+  <li>
+    <time class="timeline-date" datetime="2020-03-15">2020/03/15</time>
+    <div class="timeline-content">
+      <h3>YouTube開設</h3>
+      <p>
+        西隈が少佐.exe名義で<a class="a_blank" href="https://www.youtube.com/channel/UCTK8mNBz6xS_U81KIg79I2A" target="_blank"
+          rel="noopener">YouTubeチャンネル</a>を作成。
+      </p>
+    </div>
+  </li>
+  <li>
+    <time class="timeline-date" datetime="2020-03-27">2020/03/27</time>
+    <div class="timeline-content">
+      <h3>プラグイン製作開始</h3>
+      <p>
+        FAD用プラグインの開発を開始。<br>
+        一般公開されている汎用的なプラグインでは実現できなかった挙動が設定可能に。<br>
+        ここで人生初めてプログラミングを書き始める。
+      </p>
+    </div>
+  </li>
+  <li>
+    <time class="timeline-date" datetime="2020-05-18">2020/05/18</time>
+    <div class="timeline-content">
+      <h3>旧FADサーバーホームページを作成</h3>
+      <p>
+        GoogleSiteを用いて作成。<br>
+        思うようにレイアウトが作れないので、作成時点で、HTML/CSSを用いた独自サイトの作成を検討。サーバー設置の観点で頓挫。
+      </p>
+    </div>
+  </li>
+  <li>
+    <time class="timeline-date" datetime="2020-07-07">2020/07/07</time>
+    <div class="timeline-content">
+      <h3>FADサーバー公式LINE誕生</h3>
+      <p>
+        <a class="a_blank" href="https://line.me/R/ti/p/%40633zpwok" target="_blank"
+          rel="noopener">FADサーバー公式LINE</a>を作成。<br>
+        初めてのツールを使った大規模広告。そこそこ凝って作った割には、あんまり使わなかった。旧ロゴで更新止まってる始末。
+      </p>
+    </div>
+  </li>
+  <li>
+    <time class="timeline-date" datetime="2020-12-11">2020/12/11</time>
+    <div class="timeline-content">
+      <h3>YouTubeに動画投稿開始</h3>
+      <p>YouTubeに動画投稿を開始。</p>
+    </div>
+  </li>
+  <li>
+    <time class="timeline-date" datetime="2021-07-24">2021/07/24</time>
+    <div class="timeline-content">
+      <h3>新ホームページ作成開始</h3>
+      <p>
+        <a class="a_blank" href="https://fadserver.github.io/FAD/" target="_blank"
+          rel="noopener">新FAD公式ホームページ</a>作成開始。<br>
+        GitHub Pagesが無料でサーバーを持てると知って、作成開始。HTML/CSS、JSを学び始める。<br>
+        コレを作成して以降はAIが出てきてしまい、自分で0から作成することがなくなっちゃった。便利な半面、新しい事始めようとすると、あの自分の力だけで書けたときの嬉しさが味わえず、悲しい気持ちと反面、便利を享受できて複雑。
+      </p>
+    </div>
+  </li>
+  <li>
+    <time class="timeline-date" datetime="2022-02-04">2022/02/04</time>
+    <div class="timeline-content">
+      <h3>ロゴ変更</h3>
+      <p>
+        <a class="a_blank" href="https://fadserver.github.io/FAD/news/release/2022-2-4" target="_blank"
+          rel="noopener">FADサーバーのロゴを変更</a>した。<br>
+        初めてのロゴ、アイコン作成。
+      </p>
+    </div>
+  </li>
+  <li>
+    <p class="timeline-date">2025/██/██</p>
+    <div class="timeline-content">
+      <h3>師範合格</h3>
+      <p>とある書道会の師範になる。</p>
+    </div>
+  </li>
+  <li>
+    <time class="timeline-date" datetime="2026-06-01">2026/06/01</time>
+    <div class="timeline-content">
+      <h3><a class="a_blank" href="https://www.mainichishodo.org/syodoten/" target="_blank"
+          rel="noopener">第77回毎日書道展</a>で入選</h3>
+      <p>初出品で初入選を果たす。</p>
+    </div>
+  </li>
+</ul>
