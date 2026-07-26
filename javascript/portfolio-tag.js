@@ -1,48 +1,93 @@
 /**
  * カテゴリの選択状態に合わせて、カードの表示・非表示クラスを切り替える
- * @param {string} category - フィルタリングするカテゴリ名
+ * @param {string} target - フィルタリングするカテゴリ名
  */
-function filterSelection(category) {
-    /** ページ上の全ての制作物カード（div） */
-    const cards = document.querySelectorAll(".card-blog-a");
+function filterSelection(target) {
+    const cards = Array.from(document.querySelectorAll(".card-blog-a"));
+    const visibleCards = cards.filter((card) => !card.classList.contains("is-hidden"));
+    const beforeRects = getCardRects(visibleCards);
 
     cards.forEach((card) => {
-        // カテゴリが「全て」またはカードのクラスと一致する場合
-        if (category === "all" || card.classList.contains(category)) {
-            // 【出現】
-            // クラスを消すと width 0s により一瞬で枠が確保される。
-            // その後、見た目だけ 0.4s かけてふわっと現れる。
-            card.classList.remove("is-hidden");
-        } else {
-            // 【消失】
-            // クラスを足すと 0.4s かけて見た目が消える。
-            // delay(0.4s) 設定により、見た目が消えきった瞬間に幅が一瞬で 0 になる。
-            card.classList.add("is-hidden");
-        }
+        const tags = (card.dataset.tags || "")
+            .split(",")
+            .map((tag) => tag.trim().toLowerCase())
+            .filter(Boolean);
+        const matches = target === "all" || tags.includes(target.toLowerCase());
+        card.classList.toggle("is-hidden", !matches);
     });
+
+    const remainingCards = cards.filter((card) => !card.classList.contains("is-hidden"));
+    animateCardMove(remainingCards, beforeRects);
 }
 
 /**
- * フィルタリングボタンのアクティブ表示（色など）を更新する
+ * フィルタボタンのアクティブ表示（色など）を更新する
  * @param {HTMLElement} activeBtn - クリックされたボタン
  */
 const updateButtonUI = (activeBtn) => {
-    /** ページ内の全フィルタボタン */
     const allButtons = document.querySelectorAll(".filter-btn");
-    allButtons.forEach((btn) => btn.classList.remove("active"));
+    allButtons.forEach((btn) => {
+        btn.classList.remove("active");
+        btn.setAttribute("aria-pressed", "false");
+    });
+
     activeBtn.classList.add("active");
+    activeBtn.setAttribute("aria-pressed", "true");
 };
+
+/**
+ * 現在のカード位置を取得する
+ * @param {HTMLElement[]} cards
+ * @returns {Map<HTMLElement, DOMRect>}
+ */
+function getCardRects(cards) {
+    return new Map(cards.map((card) => [card, card.getBoundingClientRect()]));
+}
+
+/**
+ * FLIP によるカード移動アニメーション
+ * @param {HTMLElement[]} cards
+ * @param {Map<HTMLElement, DOMRect>} beforeRects
+ */
+function animateCardMove(cards, beforeRects) {
+    cards.forEach((card) => {
+        const before = beforeRects.get(card);
+        if (!before) return;
+
+        const after = card.getBoundingClientRect();
+        const deltaX = before.left - after.left;
+        const deltaY = before.top - after.top;
+
+        if (deltaX === 0 && deltaY === 0) return;
+
+        card.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+        card.style.transition = "transform 0s";
+
+        requestAnimationFrame(() => {
+            card.style.transition = "transform 0.4s ease";
+            card.style.transform = "";
+            const onTransitionEnd = (event) => {
+                if (event.propertyName === "transform") {
+                    card.style.transition = "";
+                    card.removeEventListener("transitionend", onTransitionEnd);
+                }
+            };
+            card.addEventListener("transitionend", onTransitionEnd);
+        });
+    });
+}
 
 /** 文書の読み込み完了時に実行する初期設定 */
 document.addEventListener("DOMContentLoaded", () => {
-    /** フィルタリングに使用する全てのボタン要素 */
     const filterButtons = document.querySelectorAll(".filter-btn");
 
     filterButtons.forEach((btn) => {
+        btn.setAttribute("type", "button");
+        btn.setAttribute("aria-pressed", btn.classList.contains("active") ? "true" : "false");
+
         btn.addEventListener("click", () => {
-            /** ボタンの data-filter 属性に指定されたカテゴリ名 */
-            const targetFilter = btn.getAttribute("data-filter");
-            filterSelection(targetFilter);
+            const target = btn.dataset.target || "all";
+            filterSelection(target);
             updateButtonUI(btn);
         });
     });

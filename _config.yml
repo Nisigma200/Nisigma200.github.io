@@ -3,9 +3,22 @@ description: 西隈（ニシグマ）の個人サイト
 baseurl: ""
 url: "https://nisigma200.github.io"
 
+collections:
+    portfolio:
+        output: true
+        permalink: /portfolio/:name/
+
+defaults:
+    - scope:
+          path: ""
+          type: "portfolio"
+      values:
+          layout: portfolio_item
+          css_path: css/common.css
+
 # Jekyllのビルド対象から除外する設定
 exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - .github
+    - Gemfile
+    - Gemfile.lock
+    - node_modules
+    - .github

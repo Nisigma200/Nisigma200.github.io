@@ -31,62 +31,55 @@ css_path: css/portfolio/index.css
             </div>
 
             <div id="filter-buttons">
-                <button class="filter-btn active" data-filter="all">全 て</button>
-                <button class="filter-btn" data-filter="dev">開 発</button>
-                <button class="filter-btn" data-filter="design">デザイン</button>
-                <button class="filter-btn" data-filter="management">運 営</button>
-                <button class="filter-btn" data-filter="management">書 道</button>
+                <button type="button" class="filter-btn active" data-target="all">全 て</button>
+                <button type="button" class="filter-btn" data-target="dev">開 発</button>
+                <button type="button" class="filter-btn" data-target="design">デザイン</button>
+                <button type="button" class="filter-btn" data-target="management">運 営</button>
+                <button type="button" class="filter-btn" data-target="calligraphy">書 道</button>
             </div>
 
             <div class="card-contents">
                 <div class="card-grid">
-                    <div class="card-blog-a dev management">
-                        <a href="{{ site.baseurl }}/portfolio/fad-server-plugin">
+                    {% assign portfolio_items = site.portfolio | default: site.collections.portfolio.docs | default: []
+                    | sort: "date" | reverse %}
+                    {% for item in portfolio_items %}
+                    {% assign number = forloop.rindex | prepend: '0' %}
+                    {% assign all_tags = item.categories | concat: item.tags %}
+                    <div class="card-blog-a" data-number="{{ number | slice: -2, 2 }}"
+                        data-tags="{{ all_tags | join: ',' }}">
+                        <a href="{{ item.url | relative_url }}">
+                            {% assign thumb = item.thumbnail %}
+                            {% if item.thumbnail_webp %}
+                            {% assign thumb_webp = item.thumbnail_webp %}
+                            {% else %}
+                            {% assign thumb_webp = thumb | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' |
+                            replace: '.png', '.webp' %}
+                            {% endif %}
                             <picture>
-                                <source srcset="{{ site.baseurl}}/image/portfolio/index/FAD-thumbnail.webp"
-                                    type="image/webp">
-                                <img src="{{ site.baseurl}}/image/portfolio/index/FAD-thumbnail.jpg">
+                                <source srcset="{{ thumb_webp | relative_url }}" type="image/webp">
+                                <img src="{{ thumb | relative_url }}" alt="{{ item.title }} サムネイル">
                             </picture>
                             <div class="card-blog-content">
-                                <h2 class="card-title">FADサーバープラグイン</h2>
+                                <h2 class="card-title">{{ item.title }}</h2>
                                 <p class="card-excerpt">
-                                    全自動生成ダンジョン（FAD）<br>コマンドを補うプラグインの作成。UI関連、ランダムの実装。
+                                    {{ item.excerpt | strip_html | truncate: 120 }}
                                 </p>
                                 <div class="card-filters">
                                     <span class="title-tag AweSomeFont-Free"></span>
-                                    <span class="filter-label">開発</span>
-                                    <span class="filter-label">運営</span>
+                                    {% for category in item.categories %}
+                                    <span class="filter-label">{{ category }}</span>
+                                    {% endfor %}
                                 </div>
                                 <div class="card-tags">
                                     <span class="title-tag AweSomeFont-Free"></span>
-                                    <span class="tag-label"><span class=" AweSomeFont-Brands java"></span>Java</span>
-                                    <span class="tag-label">System</span>
+                                    {% for tag in item.tags %}
+                                    <span class="tag-label">{{ tag }}</span>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="card-blog-a design">
-                        <a href="{{ site.baseurl }}/portfolio/nisigma-icon">
-                            <picture>
-                                <source srcset="{{ site.baseurl}}/image/portfolio/index/nisigma-icon-thumbnail.webp"
-                                    type="image/webp">
-                                <img src="{{ site.baseurl}}/image/portfolio/index/nisigma-icon-thumbnail.jpg">
-                            </picture>
-                            <div class="card-blog-content">
-                                <h2 class="card-title">西隈のアイコン作成</h2>
-                                <p class="card-excerpt">西隈の新アイコンの作成 </p>
-                                <div class="card-filters">
-                                    <span class="title-tag AweSomeFont-Free"></span>
-                                    <span class="filter-label">デザイン</span>
-                                </div>
-                                <div class="card-tags">
-                                    <span class="title-tag AweSomeFont-Free"></span>
-                                    <span class="tag-label">GIMP</span>
-                                    <span class="tag-label">SVG</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
