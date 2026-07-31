@@ -494,6 +494,151 @@ blockquote::after {
 /* ↑ エラー ↑ */
 /* ↑ 装飾 ↑ */
 
+/* ↓ボタン関係↓ */
+.account {
+  color: #484848;
+  display: flex;
+  align-items: center;
+  width: calc(100% - 20px);
+  padding: 10px;
+  line-height: 50px;
+  line-height: normal;
+  background: #f4f4f4;
+  text-decoration: none;
+  margin: 1em;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.account-logo {
+  display: inline;
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.account-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.explanation {
+  font-weight: normal;
+}
+
+.account-logo::before {
+  display: inline-block;
+  text-align: center;
+  font-size: 28px;
+  color: white;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.account-logo-twitter::before {
+  background: var(--color-logo-twitter);
+  content: "\e61b";
+}
+
+.account-logo-youtube::before {
+  background: var(--color-logo-youtube);
+  content: "\f167";
+}
+
+.account-logo-twitch::before {
+  background: var(--color-logo-twitch);
+  content: "\f1e8";
+}
+
+.account-logo-amazon::before {
+  background: var(--color-logo-amazon);
+  content: "\f270";
+}
+
+.account-logo-line::before {
+  background: var(--color-logo-line);
+  content: "\f3c0";
+}
+
+.account-logo-server::before {
+  background: #1e1e1e;
+  content: "\f233";
+}
+
+.account-logo-wiki::before {
+  background: #00d80c;
+  content: "\f233";
+}
+
+.account-logo-qiita::before {
+  background: var(--color-logo-qiita);
+  content: "";
+  background-image: url("../image/index/qiita.svg");
+  background-size: 28px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.account-logo-misskey::before {
+  background: var(--color-logo-misskey);
+  content: "";
+  background-image: url("../image/index/misskey.svg");
+  background-size: 28px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.account-logo-github::before {
+  background: var(--color-logo-github);
+  content: "\f09b";
+}
+
+.account-logo-discord::before {
+  background: var(--color-logo-discord);
+  content: "\f392";
+}
+
+.account-logo-site::before {
+  background: var(--color-main);
+  content: "\f2d0";
+}
+
+.account-logo-ohoo::before {
+  background: #0c3b4b;
+  content: "";
+  background-image: url("../image/index/ohoo.png");
+  background-size: 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.account-logo-fad::before {
+  background: #000946;
+  content: "";
+  background-image: url("../image/index/logo.svg");
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ↑ボタン関係↑ */
+
 /* ↓ 画像説明 ↓ */
 .img-frame {
   width: 100% !important;
@@ -518,6 +663,17 @@ blockquote::after {
   display: block;
   margin: auto;
   border: 2px solid var(--color-hover);
+}
+
+.image-gallery {
+  margin: 0 auto;
+  max-width: 80%;
+  display: flex;
+  gap: 20px;
+}
+
+.image-gallery .img-frame {
+  display: block;
 }
 
 /* ↑ 画像説明 ↑ */
