@@ -911,6 +911,10 @@ header .contents {
   vertical-align: top;
 }
 
+.create-day {
+  margin-right: 15px;
+}
+
 .date .create-day::before {
   content: '\e8b5';
 }
