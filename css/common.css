@@ -641,9 +641,9 @@ blockquote::after {
 
 /* ↓ 画像説明 ↓ */
 .img-frame {
-  width: 100% !important;
+  width: 300px;
   text-align: center;
-  margin: 16px 0;
+  margin: 16px auto;
 }
 
 .img-frame p {

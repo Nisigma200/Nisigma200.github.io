@@ -1,0 +1,14 @@
+/* PCおよび基本のスタイル：中央揃えにする場合 */
+.twitter-tweet {
+    margin: 0 auto !important;
+}
+
+/* スマホサイズ（最大600px）の場合に画面幅いっぱいにする */
+@media (max-width: 600px) {
+    .twitter-tweet {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
