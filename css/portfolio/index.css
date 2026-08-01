@@ -3,6 +3,7 @@
 
 :root {
     --color-thin: #555555;
+    --card-ease: cubic-bezier(.22, 1, .36, 1);
 }
 
 /* --- フィルタリングボタン --- */
@@ -15,17 +16,18 @@
 
 .filter-btn {
     padding: 8px 16px;
+    width: 100px;
     border: 1px solid var(--color-main);
     background-color: transparent;
     color: var(--color-text);
     cursor: pointer;
     border-radius: 20px;
     font-size: 0.9rem;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .filter-btn:hover {
-    background-color: #ebe8e8 !important;
+    background-color: #ebe8e8;
     color: var(--color-text);
 }
 
@@ -47,69 +49,91 @@
 /* --- カード単体の基本スタイル（出現時の挙動） --- */
 .card-blog-a {
     position: relative;
-    /** 制作物カードの横幅 */
+    flex: 0 0 calc(33.333% - 15px);
     width: calc(33.333% - 15px);
-    /** カードの左右外余白 */
+    height: 400px;
     margin: 0 7.5px 15px 7.5px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
     background: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
     box-sizing: border-box;
     overflow: hidden;
     counter-increment: card-number;
-
-    /* 表示状態 */
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0) scale(1);
     visibility: visible;
-    /* フィルタ時に高さを詰めるための基準値 */
     max-height: 1000px;
-
-    /* 【出現時の挙動】 */
-    /* width 等と同様、max-height も 0s で即座に確保する。 */
+    min-width: 0;
+    will-change: transform, opacity, filter;
     transition:
-        opacity 0.4s ease,
-        transform 0.4s ease,
-        visibility 0s,
-        width 0s,
-        max-height 0s,
-        margin 0s,
-        border-width 0s,
-        box-shadow 0.3s ease;
+        opacity 0.45s var(--card-ease),
+        transform 0.45s var(--card-ease),
+        filter 0.45s ease,
+        visibility 0.25s ease,
+        max-height 0.35s ease,
+        margin 0.35s ease,
+        border-width 0.35s ease;
 }
 
 .card-blog-a>a {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     color: inherit;
     text-decoration: none;
 }
 
-/* --- 非表示・消失時のスタイル（is-hiddenクラス付与時） --- */
-/* 【完全な逆再生】徐々に透明になり、消えきった瞬間にパッと詰める */
+.card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .card-blog-a.is-hidden {
     opacity: 0;
-    transform: scale(0.95);
+    transform: translateY(20px) scale(0.96);
+    filter: blur(8px);
     visibility: hidden;
-
-    /* 物理的なサイズをゼロにする。高さ（max-height）も追加 */
+    pointer-events: none;
+    flex: 0 0 0 !important;
     width: 0 !important;
+    min-width: 0 !important;
     max-height: 0 !important;
     margin: 0 !important;
     border-width: 0 !important;
     padding: 0 !important;
-
-    /* 【消失時の挙動】 */
-    /* opacity のイージング完了（0.4s）を待ってから、一瞬（0s）で全てを詰める */
-    transition:
-        opacity 0.4s ease,
-        transform 0.4s ease,
-        visibility 0s 0.4s,
-        width 0s 0.4s,
-        max-height 0s 0.4s,
-        margin 0s 0.4s,
-        border-width 0s 0.4s;
+    overflow: hidden;
 }
+
+.card-blog-a.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+    visibility: visible;
+    transition-delay: var(--card-delay, 0ms);
+}
+
+.card-blog-a.is-visible .card-blog-content,
+.card-blog-a.is-visible img {
+    transition-delay: calc(var(--card-delay, 0ms) + 90ms);
+}
+
+.card-blog-a:not(.is-hidden) .card-blog-content,
+.card-blog-a.is-visible .card-blog-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-blog-a.is-visible img {
+    transform: scale(1);
+}
+
+.card-blog-a.is-hidden .card-blog-content {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
 
 /* --- 背景の巨大な数字 --- */
 .card-blog-a::before {
@@ -129,24 +153,27 @@
 /* --- カード内部の装飾 --- */
 .card-blog-a:hover {
     transform: translateY(-6px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 .card-blog-a img {
     width: 100%;
-    /* 高さを固定する場合 */
-    height: 185px;
-    /* 縦横比を維持したまま枠を埋める */
+    /* aspect-ratioを追加 */
+    aspect-ratio: 16 / 9;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s ease;
+    transform: scale(0.97);
+    transition: transform 0.4s var(--card-ease);
 }
 
 .card-blog-content {
     padding: 14px;
     position: relative;
     z-index: 1;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s var(--card-ease), transform 0.4s var(--card-ease);
 }
+
 
 .card-blog-content .card-title {
     all: revert;
@@ -210,7 +237,6 @@
 
     .card-blog-a.is-hidden {
         max-height: 0 !important;
-        /* スマホでも同様：透明化してから一瞬で高さを消す */
         transition: opacity 0.4s ease, max-height 0s 0.4s;
     }
 }
@@ -234,4 +260,29 @@
 
 .javascript::before {
     content: "\f3b8";
+}
+
+/* --- モバイル対応 --- */
+@media (max-width: 900px) {
+    .card-blog-a {
+        width: calc(50% - 15px);
+    }
+}
+
+@media (max-width: 600px) {
+    .card-blog-a {
+        flex: 0 0 100%;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .card-blog-a.is-hidden {
+        max-height: 0 !important;
+        transition: opacity 0.4s ease, max-height 0s 0.4s;
+    }
+
+    .card-blog-a {
+        height: auto;
+    }
 }

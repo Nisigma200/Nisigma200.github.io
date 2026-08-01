@@ -3,7 +3,7 @@ layout: default
 title: 西隈サイト | Portfolio
 css_path: css/portfolio/index.css
 create-date: 2026-02-16
-update-date: 2026-02-16
+update-date: 2026-08-01
 breadcrumbs:
 - { name: "ホーム", url: "/", icon: "home" }
 - { name: "Portfolio", url: null, icon: "folder" }
@@ -12,11 +12,11 @@ breadcrumbs:
 <h1>Portfolio</h1>
 
 <div id="filter-buttons">
-    <button type="button" class="filter-btn active" data-target="all">全 て</button>
-    <button type="button" class="filter-btn" data-target="dev">開 発</button>
+    <button type="button" class="filter-btn active" data-target="all">全　て</button>
+    <button type="button" class="filter-btn" data-target="dev">開　発</button>
     <button type="button" class="filter-btn" data-target="design">デザイン</button>
-    <button type="button" class="filter-btn" data-target="management">運 営</button>
-    <button type="button" class="filter-btn" data-target="calligraphy">書 道</button>
+    <button type="button" class="filter-btn" data-target="management">運　営</button>
+    <button type="button" class="filter-btn" data-target="calligraphy">書　道</button>
 </div>
 
 <div class="card-contents">
@@ -27,7 +27,7 @@ breadcrumbs:
         {% assign number = forloop.rindex | prepend: '0' %}
         {% assign all_tags = item.categories | concat: item.tags %}
         <div class="card-blog-a" data-number="{{ number | slice: -2, 2 }}" data-tags="{{ all_tags | join: ',' }}">
-            <a href="{{ item.url | relative_url }}">
+            <a href="{{ item.url | relative_url }}" class="card-link">
                 {% assign thumb = item.thumbnail %}
                 {% if item.thumbnail_webp %}
                 {% assign thumb_webp = item.thumbnail_webp %}
