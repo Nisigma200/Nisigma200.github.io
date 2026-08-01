@@ -801,8 +801,37 @@ header .contents {
 
 /* ↓ 日付 ↓ */
 
-@media screen and (max-width: 47.9375rem) {
+.date {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: var(--color-hover);
+}
 
+.date time {
+  display: inline-flex;
+  align-items: center;
+}
+
+.date time::before {
+  font-family: 'Material Icons Sharp';
+  display: inline-block;
+  margin-right: 0.3125rem;
+}
+
+.create-day {
+  margin-right: 15px;
+}
+
+.date .create-day::before {
+  content: '\e8b5';
+}
+
+.date .update-day::before {
+  content: '\e923';
+}
+
+@media screen and (max-width: 47.9375rem) {
   .metadata {
     flex-direction: column;
     align-items: unset;
@@ -821,6 +850,10 @@ header .contents {
   .news-list .item .category {
     min-width: 50%;
     margin-bottom: 0.625rem;
+  }
+
+  .date {
+    justify-content: flex-start;
   }
 }
 
@@ -897,30 +930,6 @@ header .contents {
 
 .breadcrumb-nav li a:hover span {
   text-decoration: underline;
-}
-
-.date {
-  text-align: right;
-}
-
-.date time::before {
-  font-family: 'Material Icons Sharp';
-  display: inline-block;
-  color: var(--color-hover);
-  margin-right: 0.3125rem;
-  vertical-align: top;
-}
-
-.create-day {
-  margin-right: 15px;
-}
-
-.date .create-day::before {
-  content: '\e8b5';
-}
-
-.date .update-day::before {
-  content: '\e923';
 }
 
 footer,
