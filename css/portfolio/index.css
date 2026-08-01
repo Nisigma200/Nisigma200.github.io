@@ -42,7 +42,6 @@
     flex-wrap: wrap;
     margin: 0 -7.5px;
     padding: 0;
-    counter-reset: card-number;
 }
 
 /* --- カード単体の基本スタイル（出現時の挙動） --- */
@@ -114,7 +113,7 @@
 
 /* --- 背景の巨大な数字 --- */
 .card-blog-a::before {
-    content: counter(card-number, decimal-leading-zero);
+    content: attr(data-number);
     position: absolute;
     top: 200px;
     left: -25px;
