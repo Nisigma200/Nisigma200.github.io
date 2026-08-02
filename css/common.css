@@ -1,4 +1,4 @@
-@import url('https://use.fontawesome.com/releases/v7.2.0/css/all.css');
+@import url('https://use.fontawesome.com/relvar(--trans-ease)s/v7.2.0/css/all.css');
 
 * {
   box-sizing: border-box;
@@ -53,6 +53,9 @@ html {
   /* breadcrumb/date row height */
   --footer-height: 6.4375rem;
   /* match reference's footer spacing */
+
+  --trans-var: var(--trans-time);
+  --trans-var: var(--trans-ease);
 }
 
 p,
@@ -196,13 +199,13 @@ a {
 .a {
   color: var(--color-text);
   text-decoration: underline;
-  transition: 0.3s ease;
+  transition: var(--trans-time) var(--trans-ease);
   font-family: var(--main-font-family);
 }
 
 .a_nounder {
   color: var(--color-text);
-  transition: 0.3s ease;
+  transition: var(--trans-time) var(--trans-ease);
 }
 
 .a_blank::after {
@@ -211,7 +214,7 @@ a {
   font-family: 'Material Icons Sharp';
   font-size: 10px;
   padding: 0 3px;
-  transition: 0.3s ease;
+  transition: var(--trans-time) var(--trans-ease);
   vertical-align: middle;
 }
 
@@ -221,7 +224,7 @@ a {
 .a_nounder:hover,
 .a_nounder:hover::after {
   color: var(--color-hover);
-  transition: 0.3s ease;
+  transition: var(--trans-time) var(--trans-ease);
 }
 
 /* ↑ aタグ ↑ */
@@ -252,8 +255,8 @@ a {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all var(--trans-time);
+  transition: all var(--trans-time);
   text-align: center;
   vertical-align: middle;
   text-decoration: none;
@@ -762,7 +765,7 @@ blockquote::after {
   height: 40px;
   font-weight: bold;
   border: 2px solid var(--color-main);
-  transition: 0.3s;
+  transition: var(--trans-time);
   box-shadow: 5px 5px 0px 0px var(--color-main);
   background-color: #FFFFFF;
   text-align: center;
@@ -932,37 +935,147 @@ header .contents {
   text-decoration: underline;
 }
 
-footer,
-#child1>footer {
+/* ↓ フッター ↓ */
+footer {
+  background-color: var(--color-main);
+  position: relative;
+  color: var(--color-second);
+}
+
+footer .footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.875rem 6.25rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* ナビゲーションとSNSをまとめたコンテナ */
+.footer-nav-container {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+footer .logo {
+  display: block;
+}
+
+footer .logo img {
+  display: block;
+  width: 12.5rem;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
+
+.footer-contents {
+  background: none;
+}
+
+/* フッターナビの区切り線 */
+footer .footer-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer .footer-nav li {
+  padding: 0 1.25rem;
+  /* 線の両側の余白 */
+  border-left: 0.0625rem solid var(--color-second);
+  /* 白い縦線 */
+}
+
+/* 最初の項目だけ左側の線を消す */
+footer .footer-nav li:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+/* ナビゲーションリンク：下線を強制的に消す */
+footer .footer-nav a {
+  text-decoration: none;
+  color: var(--color-second);
+  transition: all var(--trans-time) var(--trans-ease);
+}
+
+footer .footer-nav a:hover {
+  color: var(--color-hover);
+}
+
+/* SNSコンテナの設定 */
+footer .sns-container {
+  display: flex;
+  gap: 1.875rem;
+  background: none;
+}
+
+/* 円の基本スタイル */
+.sns-circle {
   display: flex;
   justify-content: center;
-  background: var(--color-main);
-  padding: 0 30px;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
+  align-items: center;
+  width: 3.125rem;
+  height: 3.125rem;
+  border-radius: 50%;
+  border: 0.125rem solid var(--color-second);
+  text-decoration: none;
+  transition: all var(--trans-time) var(--trans-ease);
+  flex-shrink: 0;
+  /* 念のため余計な余白をカット */
+  overflow: hidden;
+  /* 軸を強制的に中央にする */
+  padding: 0;
 }
 
-footer .contents {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 15px;
-}
-
-.copyright,
-#child1>footer .copyright {
-  flex: 1;
-  text-align: center;
-  padding: 20px 15px;
-  max-width: 900px;
+/* アイコン（span）を厳密に中央配置 */
+.sns-circle span {
+  display: inline-flex;
+  /* ブロックとして扱う */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
   color: var(--color-second);
-  font-size: 10px;
+  transition: all var(--trans-time) var(--trans-ease);
+  /* フォントの行高によるズレを無効化 */
+  line-height: 1;
+}
+
+.sns-circle span::before {
+  font-size: 1.2rem;
+}
+
+.x-icon::before {
+  content: "\e61b";
+}
+
+/* ホバー時のスタイル */
+.sns-circle:hover {
+  background-color: var(--color-second);
+  border-color: transparent;
+  transition: all var(--trans-time) var(--trans-ease);
+}
+
+.sns-circle:hover span {
+  color: var(--color-text);
 }
 
 footer .copyright-1 {
-  color: var(--color-second);
-  font-size: 10px;
   text-align: left;
-  padding-bottom: 20px;
+}
+
+/* コピーライト */
+footer .copyright {
+  display: block;
+  background: var(--color-second);
+  color: var(--color-main);
+  text-align: center;
+  padding: 0.9375rem;
+  font-size: 0.75rem;
+  line-height: 1.8;
 }
 
 @media screen and (max-width: 640px) {
@@ -1163,13 +1276,13 @@ footer .copyright-1 {
   /* ラベルの角の丸み */
   cursor: pointer;
   color: var(--color-main);
-  transition: 0.3s ease;
+  transition: var(--trans-time) var(--trans-ease);
 }
 
 .acbox>label:hover {
   background: var(--color-main);
   color: var(--color-second);
-  transition: 0.3s ease;
+  transition: var(--trans-time) var(--trans-ease);
 }
 
 .acbox input {
@@ -1245,7 +1358,7 @@ footer .copyright-1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all var(--trans-time) var(--trans-ease);
 }
 
 /* 矢印のスタイル */
