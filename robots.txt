@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nisigma200.github.io/sitemap_index.xml
+Sitemap: https://nisigma200.github.io/sitemap.xml

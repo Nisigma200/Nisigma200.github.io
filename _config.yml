@@ -3,6 +3,9 @@ description: 西隈（ニシグマ）の個人サイト
 baseurl: ""
 url: "https://nisigma200.github.io"
 
+plugins:
+    - jekyll-sitemap
+
 collections:
     portfolio:
         output: true
