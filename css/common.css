@@ -1070,17 +1070,64 @@ footer .copyright-1 {
 /* コピーライト */
 footer .copyright {
   display: block;
-  background: var(--color-second);
-  color: var(--color-main);
   text-align: center;
-  padding: 0.9375rem;
+  padding: 1.875rem 6.25rem;
   font-size: 0.75rem;
   line-height: 1.8;
 }
 
-@media screen and (max-width: 640px) {
-  footer {
-    padding: 0 15px;
+@media screen and (max-width: 86.25rem) {
+
+  /* フッターコンテナ全体を縦並びに */
+  footer .footer-container {
+    flex-direction: column;
+    padding: 1.875rem 1.25rem;
+    /* 要素間の縦間隔 */
+  }
+
+  /* ロゴを一番上に */
+  footer .logo {
+    order: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* ナビとSNSが入っているコンテナをその下に */
+  footer .footer-nav-container {
+    order: 2;
+    flex-direction: column;
+    /* 中身も縦並びに */
+    align-items: center;
+    margin-top: 2.5rem;
+  }
+
+  footer .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* 特定の要素の後で強制的に改行させるためのテクニック */
+  /* STORE と GUIDELINE の間に改行を入れたい場合 */
+  footer .footer-nav li:nth-child(3)::after {
+    content: "";
+    flex-basis: 100%;
+    /* これにより次の要素が必ず次の行に行く */
+  }
+
+  /* 改行した行の先頭にある縦線（PRIVACY POLICYの前の線）を消す */
+  footer .footer-nav li:nth-child(4) {
+    border-left: none;
+  }
+
+  footer .footer-nav li {
+    margin: 0.625rem 0;
+  }
+
+  /* コピーライト */
+  footer .copyright {
+    padding: 0 20px 20px 20px;
   }
 }
 
