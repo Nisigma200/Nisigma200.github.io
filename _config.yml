@@ -17,7 +17,6 @@ defaults:
           type: "portfolio"
       values:
           layout: default
-          css_path: css/common.css
 
 # Jekyllのビルド対象から除外する設定
 exclude:
