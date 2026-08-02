@@ -21,8 +21,7 @@ breadcrumbs:
 
 <div class="card-contents">
     <div class="card-grid">
-        {% assign portfolio_items = site.portfolio | default: site.collections.portfolio.docs | default: []
-        | sort: "date" | reverse %}
+        {% assign portfolio_items = site.portfolio | sort: "date" | reverse %}
         {% for item in portfolio_items %}
         {% assign number = forloop.rindex | prepend: '0' %}
         {% assign all_tags = item.categories | concat: item.tags %}
