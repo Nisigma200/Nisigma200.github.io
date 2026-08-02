@@ -1,6 +1,5 @@
 <meta charset="UTF-8">
 
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="format-detection" content="telephone=no" />
 
 <!-- Google tag (gtag.js) -->
@@ -61,6 +60,7 @@
 <meta property="og:title" content="{{ page.title | default: site.title }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ page.url | replace:'index.html','' | absolute_url }}">
+<link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 
 {% if page.og_image %}
 <meta property="og:image" content="{{ page.og_image | absolute_url }}">
