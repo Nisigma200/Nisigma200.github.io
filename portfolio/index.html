@@ -39,7 +39,7 @@ breadcrumbs:
                     <img src="{{ thumb | relative_url }}" alt="{{ item.title }} サムネイル">
                 </picture>
                 <div class="card-blog-content">
-                    <h2 class="card-title">{{ item.title }}</h2>
+                    <h2 class="card-title">{{ item.title | slice: 8, item.title.size }}</h2>
                     <p class="card-excerpt">
                         {{ item.excerpt | strip_html | truncate: 120 }}
                     </p>
