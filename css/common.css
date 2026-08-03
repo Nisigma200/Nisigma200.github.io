@@ -56,13 +56,22 @@ html {
   --trans-var: var(--trans-ease);
 }
 
+html {
+  font-size: 1rem;
+
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+
 p,
 ul li,
 ol li,
 table,
 blockquote {
   line-height: 2;
-  font-size: 16px;
+  font-size: 1rem;
   color: var(--color-text);
   overflow-wrap: break-word;
 }
@@ -86,6 +95,7 @@ h1 {
   position: relative;
   text-align: center;
   margin-bottom: 50px;
+  font-size: 2rem;
 }
 
 h1:before {
@@ -172,7 +182,7 @@ body {
 }
 
 .big {
-  font-size: 20px !important;
+  font-size: 1.5rem !important;
   font-weight: bold !important;
   margin: 0;
   background: linear-gradient(transparent 50%, yellow 50%);
@@ -329,7 +339,7 @@ blockquote {
   display: block;
   position: relative;
   line-height: 2;
-  font-size: 16px;
+  font-size: 1rem;
   color: var(--color-text);
   overflow-wrap: break-word;
   justify-content: center;
@@ -418,7 +428,7 @@ blockquote {
 
 blockquote span {
   display: block;
-  font-size: 12px;
+  font-size: 0.8rem;
   text-align: right;
 }
 
@@ -439,7 +449,7 @@ blockquote::after {
   display: block;
   position: relative;
   line-height: 2;
-  font-size: 16px;
+  font-size: 1rem;
   color: var(--color-text);
   overflow-wrap: break-word;
   border: 2px solid var(--color-attention-border);
@@ -649,7 +659,7 @@ blockquote::after {
 
 .img-frame p {
   width: 95%;
-  font-size: 13px !important;
+  font-size: 0.8rem !important;
   color: var(--color-hover) !important;
   line-height: 1 !important;
   padding: 0;
@@ -1433,5 +1443,15 @@ footer .copyright {
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #FFFFFF;
+  }
+}
+
+@media screen and (max-width: 48rem) {
+
+  html {
+    line-height: 1.5 !important;
+    /* この数値を大きくすればスマホの文字全体が大きくなります */
+    font-size: 0.875rem !important;
+    /* PCとモバイルでフォントサイズを分けるためモバイル側のサイズを指定 */
   }
 }
