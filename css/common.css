@@ -503,6 +503,37 @@ blockquote::after {
 }
 
 /* ↑ エラー ↑ */
+
+@media screen and (max-width: 48rem) {
+
+  .decoration--good,
+  .decoration--term,
+  blockquote {
+    padding: 15px;
+    margin: 10px 0 20px 0;
+  }
+
+  .decoration--term span {
+    padding-left: 25px;
+  }
+
+  .decoration--good::before,
+  .decoration--term::before,
+  blockquote::before {
+    top: 15px;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    left: 15px;
+  }
+
+  .decoration--good::after,
+  .decoration--term::after,
+  blockquote::after {
+    display: none;
+  }
+}
+
 /* ↑ 装飾 ↑ */
 
 /* ↓ボタン関係↓ */
