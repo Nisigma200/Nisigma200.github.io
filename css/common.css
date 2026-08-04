@@ -536,6 +536,36 @@ blockquote::after {
 
 /* ↑ 装飾 ↑ */
 
+/* ↓ 最終更新の注意 ↓ */
+.notice-outdated {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--color-main);
+  color: #FFFFFF;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  line-height: 1.5;
+  margin: 30px 0;
+}
+
+/* アイコン（i）の指定 */
+.notice-outdated span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5;
+}
+
+.notice-outdated span::before {
+  content: "\f06a";
+  font-size: 1.5rem;
+}
+
+/* ↑ 最終更新の注意 ↑ */
+
 /* ↓ボタン関係↓ */
 .account {
   color: #484848;

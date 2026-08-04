@@ -160,6 +160,18 @@
                 {% include page-head.html %}
 
                 <main>
+
+                    {% assign current_time = "now" | date: "%s" | divided_by: 86400 %}
+                    {% assign update_time = page.update-date | date: "%s" | divided_by: 86400 %}
+                    {% assign elapsed_days = current_time | minus: update_time %}
+
+                    {% if elapsed_days >= 365 %}
+                    <div class="notice-outdated">
+                        <span class="AweSomeFont-Free"></span>
+                        この記事は最終更新日から1年以上が経過しています。
+                    </div>
+                    {% endif %}
+
                     {{ content }}
                 </main>
             </div>
