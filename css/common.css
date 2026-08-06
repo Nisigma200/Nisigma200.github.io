@@ -52,8 +52,9 @@ html {
   --footer-height: 6.4375rem;
   /* match reference's footer spacing */
 
+  --trans-time: 0.3s;
+  --trans-ease: ease-in-out;
   --trans-var: var(--trans-time);
-  --trans-var: var(--trans-ease);
 }
 
 html {
@@ -63,7 +64,6 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-overflow-scrolling: touch;
 }
-
 
 p,
 ul li,
@@ -855,7 +855,7 @@ header .contents {
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-color: var(--color-main);
   height: 4.0625rem;
   position: fixed;
@@ -863,6 +863,97 @@ header .contents {
   left: 0;
   z-index: 1000;
   background-image: none;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.left {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 50px;
+  margin-left: 0;
+}
+
+.left a,
+.header_logo {
+  width: 50px;
+  height: 50px;
+}
+
+.nav-drawer {
+  display: flex;
+  align-items: center;
+  flex: 2 1 0;
+  margin-left: 0;
+}
+
+.left-search {
+  order: 2;
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 50%;
+}
+
+.center {
+  order: 1;
+  flex: 1 1 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  color: var(--color-second);
+}
+
+.center span::after {
+  color: var(--color-second);
+  margin: 0 15px;
+  font-size: 14px;
+  content: "|";
+}
+
+.center span:first-of-type::before {
+  color: var(--color-second);
+  margin: 0 15px;
+  font-size: 14px;
+  content: "|";
+}
+
+.right {
+  display: none;
+  flex: 1 1 0;
+  justify-content: flex-end;
+  align-items: center;
+  width: auto;
+  flex-shrink: 1;
+  height: 100%;
+}
+
+.header-twitter-icon {
+  display: none;
+  color: var(--color-second);
+  font-size: 18px;
+  transition: color var(--trans-time) var(--trans-ease);
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.header-twitter-icon::before {
+  font-family: "Font Awesome 7 Brands";
+  content: "\e61b";
+}
+
+.header-twitter-icon:hover {
+  color: var(--color-hover);
 }
 
 .metadata {
@@ -1005,6 +1096,284 @@ header .contents {
   text-decoration: underline;
 }
 
+/* 検索 */
+header .gcse-search {
+  width: 100%;
+  max-width: 280px;
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+}
+
+header .gsc-control-cse {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+header form.gsc-search-box {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+header table.gsc-search-box {
+  margin: 0 !important;
+  margin-bottom: 0 !important;
+  width: 100% !important;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+header table.gsc-search-box tbody,
+header table.gsc-search-box tr {
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+header td.gsc-input {
+  padding: 0 !important;
+  vertical-align: middle !important;
+  flex: 1 !important;
+}
+
+header .gsc-input-box {
+  border: 1px solid var(--color-second) !important;
+  border-radius: 20px !important;
+  background: #ffffff !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
+  transition: border-color var(--trans-time) var(--trans-ease), background-color var(--trans-time) var(--trans-ease) !important;
+  overflow: hidden;
+  height: 36px !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+header .gsc-input-box-focus {
+  border-color: #4a90e2 !important;
+  background: #ffffff !important;
+}
+
+header table.gsc-input {
+  height: 100% !important;
+  border-collapse: collapse !important;
+}
+
+header table.gsc-input td.gsib_a {
+  vertical-align: middle !important;
+  height: 100% !important;
+}
+
+header table.gsc-input td.gsib_b {
+  vertical-align: middle !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding-right: 8px;
+}
+
+header .gsst_b {
+  padding: 0 !important;
+  height: 100% !important;
+  display: flex;
+  align-items: center;
+}
+
+header .gsst_b[style*="display: none"] {
+  display: none !important;
+}
+
+header a.gsst_a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
+  line-height: 1;
+  text-decoration: none;
+}
+
+header .gsc-clear-button {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+header input.gsc-input {
+  background: transparent !important;
+  font-size: 13px !important;
+  color: var(--color-text) !important;
+  padding: 0 !important;
+  height: 100% !important;
+  vertical-align: middle !important;
+  margin: 0 !important;
+}
+
+header input.gsc-input::placeholder {
+  color: #757575 !important;
+}
+
+header td.gsc-search-button {
+  display: none !important;
+}
+
+/* ハンバーガーメニュー */
+.menu-toggle {
+  display: none !important;
+}
+
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-second);
+  border-radius: 2px;
+  transition: all var(--trans-time) var(--trans-ease);
+}
+
+.menu-overlay {
+  display: none;
+}
+
+@media screen and (max-width: 48rem) {
+  .hamburger-btn {
+    display: flex !important;
+  }
+
+  .nav-drawer {
+    position: fixed !important;
+    top: 0 !important;
+    left: 20% !important;
+    right: 0 !important;
+    width: auto !important;
+    height: 100vh !important;
+    background-color: var(--color-main) !important;
+    z-index: 1000 !important;
+    display: block !important;
+    padding: 20px !important;
+    padding-top: 55px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+    border-radius: 0 !important;
+    margin-left: 0 !important;
+    transform: translateX(100%) !important;
+    opacity: 1 !important;
+    visibility: hidden !important;
+    transition: transform var(--trans-time) var(--trans-ease), visibility var(--trans-time) var(--trans-ease) !important;
+    overflow-y: auto !important;
+  }
+
+  /* ドロワー内の並び順指定（検索 -> ナビリンク -> Twitterアイコン） */
+  .left-search {
+    order: unset !important;
+    width: 100% !important;
+    display: block !important;
+    margin-bottom: 20px !important;
+  }
+
+  .center {
+    order: unset !important;
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .right {
+    display: block !important;
+    order: unset !important;
+    width: 100% !important;
+    margin-top: 20px !important;
+  }
+
+  .header-twitter-icon {
+    display: inline-block !important;
+  }
+
+  .center span a {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--color-second);
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .center span a::after {
+    font-family: "Font Awesome 7 Free";
+    font-weight: 900;
+    content: "\f054";
+    margin-left: auto;
+  }
+
+  .center span::after {
+    display: none;
+  }
+
+  .center span:first-of-type::before {
+    display: none;
+  }
+
+  .menu-overlay {
+    display: block !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    z-index: 999 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: all var(--trans-time) var(--trans-ease) !important;
+  }
+
+  .menu-toggle:checked~.nav-drawer {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .menu-toggle:checked~.menu-overlay {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .menu-toggle:checked~.hamburger-btn span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle:checked~.hamburger-btn span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle:checked~.hamburger-btn span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+/* ↑ ヘッダー ↑ */
 /* ↓ フッター ↓ */
 footer {
   background-color: var(--color-main);
@@ -1205,50 +1574,6 @@ footer .copyright {
 /* ↑ フッター ↑ */
 
 /* ↓ 公開日・更新日 ↓ */
-
-.left {
-  flex: 1;
-  height: 50px;
-  margin-left: 15px;
-}
-
-.left a,
-.header_logo {
-  width: 50px;
-  height: 50px;
-}
-
-.center {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.center a {
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 14px;
-  color: var(--color-second);
-}
-
-.center span::after {
-  color: var(--color-second);
-  margin: 0 15px;
-  font-size: 14px;
-  content: "|";
-}
-
-.center span:first-of-type::before {
-  color: var(--color-second);
-  margin: 0 15px;
-  font-size: 14px;
-  content: "|";
-}
-
-.right {
-  content: "";
-  flex: 1;
-}
 
 #update-day {
   text-align: right;
