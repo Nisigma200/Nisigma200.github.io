@@ -15,10 +15,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://use.fontawesome.com">
-    <link rel="preconnect" href="https://cse.google.com">
-    <link rel="preconnect" href="https://c.clarity.ms">
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://www.google-analytics.com">
 
     <!-- ファビコン設定 -->
     <link rel="icon" href="{{ site.baseurl }}/image/favicon/favicon.svg" type="image/svg+xml">
@@ -27,10 +23,17 @@
     <link rel="mask-icon" href="{{ site.baseurl }}/image/favicon/favicon.svg" color="#242424">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ '/css/common.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/css/common.css' | relative_url }}" media="print" onload="this.media='all'">
     {% if page.css_path %}
-    <link rel="stylesheet" href="{{ page.css_path | relative_url }}">
+    <link rel="stylesheet" href="{{ page.css_path | relative_url }}" media="print" onload="this.media='all'">
     {% endif %}
+
+    <noscript>
+        <link rel="stylesheet" href="{{ '/css/common.css' | relative_url }}">
+        {% if page.css_path %}
+        <link rel="stylesheet" href="{{ page.css_path | relative_url }}">
+        {% endif %}
+    </noscript>
 
     <!-- 外部フォント・アイコン（非同期読み込み） -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp&display=swap" rel="stylesheet"
