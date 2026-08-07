@@ -2,20 +2,71 @@
 <html lang="ja">
 
 <head>
+    <!-- メタ情報・基本設定 -->
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="theme-color" content="#242424">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 
-    <meta name="format-detection" content="telephone=no" />
+    <!-- 外部ドメインへの事前接続を一括定義） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://use.fontawesome.com">
+    <link rel="preconnect" href="https://cse.google.com">
+    <link rel="preconnect" href="https://c.clarity.ms">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.google-analytics.com">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-68E3KJBX33"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+    <!-- ファビコン設定 -->
+    <link rel="icon" href="{{ site.baseurl }}/image/favicon/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="{{ site.baseurl }}/image/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="{{ site.baseurl }}/image/favicon/apple-touch-icon-180x180.png">
+    <link rel="mask-icon" href="{{ site.baseurl }}/image/favicon/favicon.svg" color="#242424">
 
-        gtag('config', 'G-68E3KJBX33');
-    </script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ '/css/common.css' | relative_url }}">
+    {% if page.css_path %}
+    <link rel="stylesheet" href="{{ page.css_path | relative_url }}">
+    {% endif %}
 
+    <!-- 外部フォント・アイコン（非同期読み込み） -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Michroma&family=Oswald:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://use.fontawesome.com/releases/v7.2.0/css/all.css" rel="stylesheet" media="print"
+        onload="this.media='all'">
+
+    <noscript>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp&display=swap" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Michroma&family=Oswald:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link href="https://use.fontawesome.com/releases/v7.2.0/css/all.css" rel="stylesheet">
+    </noscript>
+
+    <!-- OGP / Twitter Card -->
+    <meta property="og:title" content="{{ page.title | default: site.title }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url | replace:'index.html','' | absolute_url }}">
+    <meta property="og:description" content="{{ page.description | default: site.description }}">
+    <meta property="og:site_name" content="{{ site.title }}">
+    {% if page.og_image %}
+    <meta property="og:image" content="{{ page.og_image | absolute_url }}">
+    {% else %}
+    <meta property="og:image" content="{{ '/image/ogp/default.jpg' | absolute_url }}">
+    {% endif %}
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Nisigma_200">
+    <meta name="twitter:creator" content="@Nisigma_200">
+
+    <!-- 構造化データ & サーチコンソール設定 -->
+    <meta name="msvalidate.01" content="A9BE9BEB8C6C4E1E2D92625111103CF1">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -31,73 +82,14 @@
     }
     </script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>{{ page.title }}</title>
-
-    <!-- favicon設定 -->
-    <link rel="icon" href="{{ site.baseurl }}/image/favicon/favicon.svg" type="image/svg+xml">
-    <link rel="shortcut icon" href="{{ site.baseurl }}/image/favicon/favicon.ico">
-    <link rel="apple-touch-icon" href="{{ site.baseurl }}/image/favicon/apple-touch-icon-180x180.png">
-    <meta name="theme-color" content="#242424">
-    <link rel="mask-icon" href="{{ site.baseurl }}/image/favicon/favicon.svg" color="#242424">
-
-    <!-- Referrer-Policy -->
-    <meta name="referrer" content="no-referrer-when-downgrade">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://use.fontawesome.com">
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp&display=swap" rel="stylesheet"
-        media="print" onload="this.media='all'">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round&display=swap" rel="stylesheet"
-        media="print" onload="this.media='all'">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Michroma&family=Oswald:wght@700&family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap"
-        rel="stylesheet" media="print" onload="this.media='all'">
-    <link href="https://use.fontawesome.com/releases/v7.2.0/css/all.css" rel="stylesheet" media="print"
-        onload="this.media='all'">
-
-    <noscript>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round&display=swap" rel="stylesheet">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Michroma&family=Oswald:wght@700&family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap"
-            rel="stylesheet">
-        <link href="https://use.fontawesome.com/releases/v7.2.0/css/all.css" rel="stylesheet">
-    </noscript>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{ '/css/common.css' | relative_url }}">
-    {% if page.css_path %}
-    <link rel="stylesheet" href="{{ page.css_path | relative_url }}">
-    {% endif %}
-
-    <!-- OGP -->
-    <meta property="og:title" content="{{ page.title | default: site.title }}">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ page.url | replace:'index.html','' | absolute_url }}">
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-
-    {% if page.og_image %}
-    <meta property="og:image" content="{{ page.og_image | absolute_url }}">
-    {% else %}
-    <meta property="og:image" content="{{ '/image/ogp/default.jpg' | absolute_url }}">
-    {% endif %}
-
-    <meta property="og:description" content="{{ page.description | default: site.description }}">
-    <meta property="og:site_name" content="{{ site.title }}">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@Nisigma_200">
-    <meta name="twitter:creator" content="@Nisigma_200">
-
-    <!-- Bing Webmaster Tools -->
-    <meta name="msvalidate.01" content="A9BE9BEB8C6C4E1E2D92625111103CF1" />
-
-    <!-- Microsoft Clarity -->
+    <!-- アナリティクス / 計測スクリプト -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-68E3KJBX33"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-68E3KJBX33');
+    </script>
     <script type="text/javascript">
         (function (c, l, a, r, i, t, y) {
             c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
