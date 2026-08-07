@@ -12,3 +12,18 @@
         margin-right: 0 !important;
     }
 }
+
+
+/* YouTube */
+.youtube-frame {
+    width: 100%;
+    max-width: 500px;
+    /* 最大幅を800pxに制限 */
+    height: auto;
+    aspect-ratio: 16 / 9;
+    display: block;
+    /* marginを効かせるためにブロック要素にする */
+    margin: 0 auto;
+    /* 左右の余白を自動にして中央揃えにする */
+}
+

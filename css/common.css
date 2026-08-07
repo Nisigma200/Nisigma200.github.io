@@ -71,9 +71,13 @@ ol li,
 table,
 blockquote {
   line-height: 2;
-  font-size: 1rem;
   color: var(--color-text);
   overflow-wrap: break-word;
+}
+
+p {
+
+  font-size: 1rem;
 }
 
 p,
@@ -116,6 +120,7 @@ h2,
   border-left: 5px solid var(--color-main);
   background: #f4f4f4;
   color: var(--color-text);
+  font-size: 1.3rem;
 }
 
 h3 {
