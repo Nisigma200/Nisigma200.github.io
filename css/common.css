@@ -698,9 +698,15 @@ blockquote::after {
 }
 
 .account-logo-ohoo::before {
-  background: #0c3b4b;
+  background-color: #0c3b4b;
   content: "";
+
+  /* 1. image-set非対応ブラウザ用のフォールバック */
   background-image: url("../image/index/ohoo.png");
+
+  /* 2. WebP対応環境ではwebp、非対応環境ではpngを自動選択 */
+  background-image: -webkit-image-set(url("../image/index/ohoo.webp") type("image/webp"), url("../image/index/ohoo.png") type("image/png"));
+  background-image: image-set(url("../image/index/ohoo.webp") type("image/webp"), url("../image/index/ohoo.png") type("image/png"));
   background-size: 50px;
   background-repeat: no-repeat;
   background-position: center;
