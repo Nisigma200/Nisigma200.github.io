@@ -154,31 +154,31 @@ body {
   min-height: 100vh;
 }
 
-.AweSomeFont-Free {
-  font-family: "Font Awesome 7 Free";
-  font-weight: 900;
+.AweSomeFont-Free,
+.AweSomeFont-Free2,
+.AweSomeFont-Brands {
   font-style: normal;
   font-variant: normal;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
 }
 
+.AweSomeFont-Free,
 .AweSomeFont-Free2 {
   font-family: "Font Awesome 7 Free";
-  font-weight: 400;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
 }
 
 .AweSomeFont-Brands {
   font-family: "Font Awesome 7 Brands";
+}
+
+.AweSomeFont-Free {
+  font-weight: 900;
+}
+
+.AweSomeFont-Free2,
+.AweSomeFont-Brands {
   font-weight: 400;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
 }
 
 .big {
@@ -895,6 +895,9 @@ header .contents {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+#___gcse_0 {
   width: 50%;
 }
 
@@ -1291,6 +1294,10 @@ header td.gsc-search-button {
     width: 100% !important;
     display: block !important;
     margin-bottom: 20px !important;
+  }
+
+  #___gcse_0 {
+    width: 100%;
   }
 
   .center {
