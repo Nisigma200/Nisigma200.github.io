@@ -28,13 +28,6 @@
     <link rel="stylesheet" href="{{ page.css_path | relative_url }}" media="print" onload="this.media='all'">
     {% endif %}
 
-    <noscript>
-        <link rel="stylesheet" href="{{ '/css/common.css' | relative_url }}">
-        {% if page.css_path %}
-        <link rel="stylesheet" href="{{ page.css_path | relative_url }}">
-        {% endif %}
-    </noscript>
-
     <!-- 外部フォント・アイコン（非同期読み込み） -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp&display=swap" rel="stylesheet"
         media="print" onload="this.media='all'">
