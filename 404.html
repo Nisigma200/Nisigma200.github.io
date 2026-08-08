@@ -5,6 +5,8 @@ description: "お探しのページが見つからない場合の案内ページ
 css_path: css/404.css
 create-date: 2026-02-14
 update-date: 2026-02-14
+sitemap: false
+permalink: /404.html
 breadcrumbs:
 - { name: "ホーム", url: "/", icon: "home" }
 - { name: "404エラー", url: null, icon: "404" }
@@ -13,6 +15,8 @@ breadcrumbs:
 
 <head>
   <meta http-equiv="refresh" content="3;URL='{{ site.baseurl }}/'">
+  <!-- 404 ページ用の head 内に追加 -->
+  <meta name="robots" content="noindex, nofollow">
 </head>
 
 <div class="box">
