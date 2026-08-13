@@ -1156,6 +1156,10 @@ header .contents {
   content: '\e5c9';
 }
 
+.pan-search:before {
+  content: '\f002';
+}
+
 .breadcrumb-nav,
 .date {
   flex: 1;

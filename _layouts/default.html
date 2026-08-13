@@ -125,7 +125,7 @@
                         <div class="nav-drawer">
                             <div class="left-search">
                                 <script async src="https://cse.google.com/cse.js?cx=b636ccbd39f214f4a"></script>
-                                <div class="gcse-search"></div>
+                                <div class="gcse-searchbox-only"></div>
                             </div>
                             <div class="center">
                                 <span><a href="{{ site.baseurl }}/portfolio/" class="a">Portfolio</a></span>
@@ -147,6 +147,7 @@
                                     {% when "folder" %}{% assign icon_class = "pan-folder" %}
                                     {% when "paper" %}{% assign icon_class = "pan-paper" %}
                                     {% when "404" %}{% assign icon_class = "pan-404" %}
+                                    {% when "search %}{% assign icon_class = "pan-search" %}
                                     {% endcase %}
 
                                     {% if item.url %}
