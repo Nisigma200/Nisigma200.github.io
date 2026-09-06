@@ -38,10 +38,9 @@
   display: flex;
 }
 
-
-
 .nisigma,
-.major_exe {
+.major_exe,
+.fuuseki {
   flex: 1;
   margin: 0 5px;
   padding: 0.5em 1em;
