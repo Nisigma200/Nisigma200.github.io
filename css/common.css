@@ -291,6 +291,38 @@ body {
   text-decoration: line-through;
 }
 
+/* ↓ 縦書きテキストのscroll分かりやすくするやつ ↓ */
+.vertical-text-wrap {
+  overflow: auto;
+  margin: 16px 0;
+}
+
+.vertical-text-wrap .vertical-text {
+  /* スクロール非発生時は描画領域が固定され黒帯が隠れる設定 */
+  background:
+    /* 左側のマスク（白）と影（黒） */
+    linear-gradient(to right, white 15px, hsla(0, 0%, 100%, 0)),
+    linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)),
+    /* 右側のマスク（白）と影（黒） */
+    linear-gradient(to left, white 15px, hsla(0, 0%, 100%, 0)) 100% 0,
+    linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)) 100% 0;
+
+  background-repeat: no-repeat;
+  background-size: 50px 100%, 20px 100%, 50px 100%, 20px 100%;
+  background-attachment: local, scroll, local, scroll;
+
+  writing-mode: vertical-rl;
+  max-width: 100%;
+  max-height: 400px;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  margin: 0;
+  padding: 10px;
+}
+
+/* ↑ 縦書きテキストのscroll分かりやすくするやつ ↑ */
+
 /* ↓ aタグ ↓ */
 a {
   text-decoration: none;
@@ -608,6 +640,10 @@ blockquote::after {
 
   .decoration--term span {
     padding-left: 25px;
+  }
+
+  blockquote {
+    padding-left: 50px;
   }
 
   .decoration--good::before,
