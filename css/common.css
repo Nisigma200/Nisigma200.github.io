@@ -186,6 +186,57 @@ body {
   font-weight: 400;
 }
 
+/* ↓ 文中ロゴ ↓ */
+.inline-logo::before {
+  display: inline-block;
+  content: "" !important;
+  width: 1rem;
+  height: 1rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: -0.15em;
+  margin-right: 10px;
+}
+
+.c-sharp::before {
+  background-image: url("../image/logo/c-sharp.svg");
+}
+
+.c-plus::before {
+  background-image: url("../image/logo/c-plus.svg");
+}
+
+.html::before {
+  background-image: url("../image/logo/html.svg");
+}
+
+.css::before {
+  background-image: url("../image/logo/css.svg");
+}
+
+.js::before {
+  background-image: url("../image/logo/js.svg");
+}
+
+.java::before {
+  background-image: url("../image/logo/java.svg");
+}
+
+.python::before {
+  background-image: url("../image/logo/python.svg");
+}
+
+.svg::before {
+  background-image: url("../image/logo/svg.svg");
+}
+
+.minecraft::before {
+  background-image: url("../image/logo/minecraft.svg");
+}
+
+/* ↑ 文中ロゴ ↑ */
+
 /* ↓ 目次 ↓ */
 #toc {
   margin-bottom: 30px;
