@@ -24,6 +24,7 @@ breadcrumbs:
 <div class="card-contents">
     <div class="card-grid">
         {% assign portfolio_items = site.portfolio | sort: "create-date" | reverse %}
+        {% assign valid_logos = 'c-sharp,c-plus,html,css,js,java,python,svg,minecraft' | split: ',' %}
         {% for item in portfolio_items %}
         {% assign number = forloop.rindex | prepend: '0' %}
         {% assign all_tags = item.categories | concat: item.tags %}
@@ -48,13 +49,23 @@ breadcrumbs:
                     <div class="card-filters">
                         <span class="title-tag AweSomeFont-Free"></span>
                         {% for category in item.categories %}
+                        {% assign category_slug = category | downcase | replace: 'c#', 'c-sharp' | replace: 'c++', 'c-plus' | replace: 'javascript', 'js' %}
+                        {% if valid_logos contains category_slug %}
+                        <span class="filter-label inline-logo {{ category_slug }}">{{ category }}</span>
+                        {% else %}
                         <span class="filter-label">{{ category }}</span>
+                        {% endif %}
                         {% endfor %}
                     </div>
                     <div class="card-tags">
                         <span class="title-tag AweSomeFont-Free"></span>
                         {% for tag in item.tags %}
+                        {% assign tag_slug = tag | downcase | replace: 'c#', 'c-sharp' | replace: 'c++', 'c-plus' | replace: 'javascript', 'js' %}
+                        {% if valid_logos contains tag_slug %}
+                        <span class="tag-label inline-logo {{ tag_slug }}">{{ tag }}</span>
+                        {% else %}
                         <span class="tag-label">{{ tag }}</span>
+                        {% endif %}
                         {% endfor %}
                     </div>
                 </div>
