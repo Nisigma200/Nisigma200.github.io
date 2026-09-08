@@ -5,9 +5,29 @@
     --card-ease: cubic-bezier(.22, 1, .36, 1);
 }
 
+/* --- コントロールエリア（フィルタ＆ソート） --- */
+.portfolio-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.right-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#tag-controls,
+#sort-controls {
+    position: relative;
+}
+
 /* --- フィルタリングボタン --- */
 #filter-buttons {
-    margin: 20px 0;
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
@@ -37,6 +57,134 @@
     font-weight: bold !important;
 }
 
+/* --- タグボタン（ダイアログ起動） --- */
+.tag-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--color-main);
+    background-color: transparent;
+    color: var(--color-text);
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tag-btn::before {
+    content: "\f02b";
+    display: inline-block;
+}
+
+.tag-btn:hover {
+    background-color: #ebe8e8;
+}
+
+/* --- ソートボタン --- */
+.sort-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--color-main);
+    background-color: transparent;
+    color: var(--color-text);
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sort-btn::before {
+    content: "\f362";
+    display: inline-block;
+    transform: rotate(90deg);
+}
+
+.sort-btn:hover {
+    background-color: #ebe8e8;
+}
+
+/* ボタン内のテキストラベルのみ通常フォントに戻す */
+#current-tag-label,
+#current-sort-label {
+    font-family: var(--main-font-family);
+    font-weight: normal;
+}
+
+/* --- ポップアップ型ダイアログ（ボタン直下に配置） --- */
+#sort-dialog,
+#tag-dialog {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    margin: 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px;
+    background: #fff;
+    width: 160px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    z-index: 1000;
+}
+
+#tag-dialog {
+    width: 170px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+#sort-dialog::backdrop,
+#tag-dialog::backdrop {
+    background: transparent;
+}
+
+.dialog-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dialog-content h2 {
+    display: none;
+}
+
+.dialog-options {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.sort-option-btn,
+.tag-option-btn {
+    padding: 6px 10px;
+    border: none;
+    background: transparent;
+    color: var(--color-text);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    text-align: left;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.sort-option-btn:hover,
+.tag-option-btn:hover {
+    background: #f0f0f0;
+}
+
+.sort-option-btn.active,
+.tag-option-btn.active {
+    background: var(--color-main);
+    color: #fff;
+    font-weight: bold;
+}
+
+.dialog-close-btn {
+    display: none;
+}
+
 /* --- カードグリッドレイアウト --- */
 .card-grid {
     display: flex;
@@ -45,7 +193,7 @@
     padding: 0;
 }
 
-/* --- カード単体の基本スタイル（出現時の挙動） --- */
+/* --- カード単体の基本スタイル --- */
 .card-blog-a {
     position: relative;
     flex: 0 0 calc(33.333% - 15px);
@@ -55,7 +203,6 @@
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 10px;
     background: #fff;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
     box-sizing: border-box;
     overflow: hidden;
     counter-increment: card-number;
@@ -133,7 +280,6 @@
     transform: translateY(10px);
 }
 
-
 /* --- 背景の巨大な数字 --- */
 .card-blog-a::before {
     content: attr(data-number);
@@ -156,7 +302,6 @@
 
 .card-blog-a img {
     width: 100%;
-    /* aspect-ratioを追加 */
     aspect-ratio: 16 / 9;
     object-fit: cover;
     display: block;
@@ -172,7 +317,6 @@
     transform: translateY(10px);
     transition: opacity 0.4s var(--card-ease), transform 0.4s var(--card-ease);
 }
-
 
 .card-blog-content .card-title {
     all: revert;
@@ -222,6 +366,28 @@
     margin-bottom: 8px;
 }
 
+/* ↓ 文中ロゴ ↓ */
+.inline-logo::before {
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-right: 5px;
+}
+
+/* ↑ 文中ロゴ ↑ */
+
+/* --- クリック可能なタグのスタイル --- */
+.clickable-tag {
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.clickable-tag:hover {
+    background-color: var(--color-main);
+    color: #fff;
+}
+
 /* --- モバイル対応 --- */
 @media (max-width: 900px) {
     .card-blog-a {
@@ -231,7 +397,11 @@
 
 @media (max-width: 600px) {
     .card-blog-a {
-        width: calc(100% - 15px);
+        flex: 0 0 100%;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        height: auto;
     }
 
     .card-blog-a.is-hidden {
@@ -240,26 +410,6 @@
     }
 }
 
-/* タグ絵文字 */
-.tag-label::before {
-    margin-right: 5px;
-}
-
-.java::before {
-    content: "\f4e4";
-}
-
-.html::before {
-    content: "\f13b";
-}
-
-.css::before {
-    content: "\e6a2";
-}
-
-.javascript::before {
-    content: "\f3b8";
-}
 
 /* --- モバイル対応 --- */
 @media (max-width: 900px) {
