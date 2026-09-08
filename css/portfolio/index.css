@@ -34,8 +34,7 @@
 }
 
 .filter-btn {
-    height: 36px;
-    padding: 0 16px;
+    padding: 6px 16px;
     box-sizing: border-box;
     border: 1px solid var(--color-main);
     background-color: transparent;
@@ -46,6 +45,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    line-height: 1.5;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -63,8 +63,7 @@
 
 /* --- タグボタン（ダイアログ起動） --- */
 .tag-btn {
-    height: 36px;
-    padding: 0 16px;
+    padding: 6px 16px;
     box-sizing: border-box;
     border: 1px solid var(--color-main);
     background-color: transparent;
@@ -76,6 +75,7 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
+    line-height: 1.5;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -90,8 +90,7 @@
 
 /* --- ソートボタン --- */
 .sort-btn {
-    height: 36px;
-    padding: 0 16px;
+    padding: 6px 16px;
     box-sizing: border-box;
     border: 1px solid var(--color-main);
     background-color: transparent;
@@ -103,6 +102,7 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
+    line-height: 1.5;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -121,6 +121,7 @@
 #current-sort-label {
     font-family: var(--main-font-family);
     font-weight: normal;
+    line-height: 1.5;
 }
 
 /* --- ポップアップ型ダイアログ（ボタン直下に配置） --- */
@@ -208,7 +209,7 @@
     position: relative;
     flex: 0 0 calc(33.333% - 15px);
     width: calc(33.333% - 15px);
-    height: 400px;
+    height: auto;
     margin: 0 7.5px 15px 7.5px;
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 10px;
@@ -219,7 +220,6 @@
     opacity: 1;
     transform: translateY(0) scale(1);
     visibility: visible;
-    max-height: 1000px;
     min-width: 0;
     will-change: transform, opacity, filter;
     transition:
@@ -447,7 +447,6 @@
         transition: opacity 0.4s ease, max-height 0s 0.4s;
     }
 }
-
 
 /* --- モバイル対応 --- */
 @media (max-width: 900px) {
