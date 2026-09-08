@@ -15,11 +15,11 @@ breadcrumbs:
 
 <div class="portfolio-controls">
     <div id="filter-buttons">
-        <button type="button" class="filter-btn active" data-target="all">全　て</button>
-        <button type="button" class="filter-btn" data-target="dev">開　発</button>
+        <button type="button" class="filter-btn active" data-target="all">全 て</button>
+        <button type="button" class="filter-btn" data-target="dev">開 発</button>
         <button type="button" class="filter-btn" data-target="design">デザイン</button>
-        <button type="button" class="filter-btn" data-target="management">運　営</button>
-        <button type="button" class="filter-btn" data-target="calligraphy">書　道</button>
+        <button type="button" class="filter-btn" data-target="management">運 営</button>
+        <button type="button" class="filter-btn" data-target="calligraphy">書道</button>
     </div>
 
     <div class="right-controls">
@@ -77,6 +77,9 @@ breadcrumbs:
                     <img src="{{ thumb | relative_url }}" alt="{{ item.title }} サムネイル">
                 </picture>
                 <div class="card-blog-content">
+                    <div class="card-date-info">
+                        <time datetime="{{ item.create-date | date: '%Y-%m-%d' }}"><span class="card-date"></span>{{ item.create-date | date: '%Y.%m.%d' }}</time>
+                    </div>
                     <h2 class="card-title">{{ item.title | slice: 8, item.title.size }}</h2>
                     <p class="card-excerpt">
                         {{ item.excerpt | strip_html | truncate: 120 }}

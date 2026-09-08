@@ -318,6 +318,34 @@
     transition: opacity 0.4s var(--card-ease), transform 0.4s var(--card-ease);
 }
 
+/* --- 作成年月日 --- */
+.card-date-info {
+    margin-bottom: 4px;
+}
+
+.card-date-info time {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.8125rem;
+    color: var(--color-text);
+    line-height: 1;
+}
+
+.card-date {
+    font-size: 0.8rem;
+    color: var(--color-thin);
+    display: inline-flex;
+    align-items: center;
+}
+
+.card-date::before {
+    content: '\e8b5';
+    font-family: 'Material Icons Sharp';
+    display: inline-block;
+    margin-right: 0.3125rem;
+    line-height: 1;
+}
+
 .card-blog-content .card-title {
     all: revert;
     display: block;
