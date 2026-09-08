@@ -25,7 +25,13 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ '/css/common.css' | relative_url }}">
     {% if page.css_path %}
+    {% if page.css_path.first %}
+    {% for path in page.css_path %}
+    <link rel="stylesheet" href="{{ path | relative_url }}">
+    {% endfor %}
+    {% else %}
     <link rel="stylesheet" href="{{ page.css_path | relative_url }}">
+    {% endif %}
     {% endif %}
 
     <!-- 外部フォント・アイコン（非同期読み込み） -->

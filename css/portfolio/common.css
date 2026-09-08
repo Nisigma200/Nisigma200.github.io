@@ -27,3 +27,55 @@
     /* 左右の余白を自動にして中央揃えにする */
 }
 
+/* メタ情報（カテゴリ・タグ全体）を囲む外枠 */
+div.meta-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    padding: 3px 8px;
+    border: 1px solid var(--color-main);
+    border-radius: 3px;
+    width: fit-content;
+}
+
+/* 各セクションの横並び設定 */
+div.meta-container .card-filters,
+div.meta-container .card-tags {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 0;
+}
+
+/* アイコンのスタイル */
+div.meta-container .title-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: var(--text-color);
+}
+
+/* カテゴリ・タグのチップデザイン */
+div.meta-container .filter-label.clickable-tag,
+div.meta-container .tag-label.clickable-tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.8rem;
+    padding: 2px 8px;
+    border: 1px solid var(--text-color);
+    border-radius: 12px;
+    color: var(--text-color);
+    background-color: transparent;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+/* ホバー時の装飾 */
+div.meta-container .filter-label.clickable-tag:hover,
+div.meta-container .tag-label.clickable-tag:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
