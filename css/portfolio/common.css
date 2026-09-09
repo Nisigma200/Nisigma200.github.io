@@ -1,4 +1,6 @@
-/* PCおよび基本のスタイル：中央揃えにする場合 */
+/* =========================================================
+   X / Twitter
+   ========================================================= */
 .twitter-tweet {
     margin: 0 auto !important;
 }
@@ -13,8 +15,9 @@
     }
 }
 
-
-/* YouTube */
+/* =========================================================
+   inline frame YouTube
+   ========================================================= */
 .youtube-frame {
     width: 100%;
     max-width: 500px;
@@ -27,55 +30,357 @@
     /* 左右の余白を自動にして中央揃えにする */
 }
 
-/* メタ情報（カテゴリ・タグ全体）を囲む外枠 */
+/* =========================================================
+   メタ情報
+   ========================================================= */
 div.meta-container {
     display: inline-flex;
-    flex-wrap: wrap;
     align-items: center;
-    gap: 16px;
-    font-size: 0.85rem;
-    margin-bottom: 12px;
-    padding: 3px 8px;
-    border: 1px solid var(--color-main);
-    border-radius: 3px;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    margin-bottom: 14px;
+    padding: 7px 11px;
     width: fit-content;
+    max-width: 100%;
+    font-size: 0.82rem;
+    border: 1px solid color-mix(in srgb, var(--color-main) 30%, transparent);
+    border-radius: 8px;
+    background-color: color-mix(in srgb, var(--color-main) 3%, transparent);
+    box-sizing: border-box;
 }
 
-/* 各セクションの横並び設定 */
+/* =========================================================
+   カテゴリ・タグ
+   ========================================================= */
 div.meta-container .card-filters,
 div.meta-container .card-tags {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    margin-bottom: 0;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 0;
+    min-width: 0;
 }
 
-/* アイコンのスタイル */
+/* =========================================================
+   「カテゴリ」「タグ」の見出し
+   ========================================================= */
 div.meta-container .title-tag {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    font-size: 0.85rem;
+    flex: 0 0 auto;
+    margin-right: 3px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1;
     color: var(--text-color);
+    opacity: 0.65;
+    white-space: nowrap;
 }
 
-/* カテゴリ・タグのチップデザイン */
+/* 見出し左側のアクセント */
+div.meta-container .card-filters .title-tag::before,
+div.meta-container .card-tags .title-tag::before {
+    content: "";
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 2px;
+    height: 18px;
+    margin-right: 6px;
+    border-radius: 999px;
+    background-color: var(--color-main);
+}
+
+/* =========================================================
+   カテゴリ・タグ共通チップ
+   ========================================================= */
 div.meta-container .filter-label.clickable-tag,
 div.meta-container .tag-label.clickable-tag {
     display: inline-flex;
     align-items: center;
-    font-size: 0.8rem;
-    padding: 2px 8px;
-    border: 1px solid var(--text-color);
-    border-radius: 12px;
+    justify-content: center;
+    flex: 0 0 auto;
+    padding: 4px 9px;
+    font-size: 0.74rem;
+    font-weight: 400;
+    line-height: 1.2;
     color: var(--text-color);
     background-color: transparent;
-    transition: opacity 0.2s ease, background-color 0.2s ease;
+    border: 1px solid color-mix(in srgb, var(--text-color) 28%, transparent);
+    border-radius: 999px;
+    opacity: 0.85;
+    white-space: nowrap;
+    box-sizing: border-box;
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        opacity 0.2s ease,
+        transform 0.15s ease;
 }
 
-/* ホバー時の装飾 */
+/* =========================================================
+   カテゴリ・タグ共通ホバー
+   ========================================================= */
 div.meta-container .filter-label.clickable-tag:hover,
 div.meta-container .tag-label.clickable-tag:hover {
-    opacity: 0.8;
+    color: var(--color-main);
+    background-color: color-mix(in srgb, var(--color-main) 6%, transparent);
+    border-color: color-mix(in srgb, var(--color-main) 55%, transparent);
+    opacity: 1;
     cursor: pointer;
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   スマートフォン
+   ========================================================= */
+@media (max-width: 600px) {
+
+    /*
+     * メタ情報全体
+     *
+     * 枠を画面内に収める。
+     */
+    div.meta-container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        gap: 7px;
+        margin-bottom: 12px;
+        padding: 9px 10px;
+        border: 1px solid color-mix(in srgb, var(--color-main) 30%, transparent);
+        border-radius: 8px;
+        background-color: color-mix(in srgb, var(--color-main) 3%, transparent);
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    /* =====================================================
+       カテゴリ・タグの1行
+       ===================================================== */
+    div.meta-container .card-filters,
+    div.meta-container .card-tags {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        gap: 7px;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    /* =====================================================
+       「カテゴリ」「タグ」の見出し
+       ===================================================== */
+    div.meta-container .title-tag {
+        display: inline-flex;
+        align-items: center;
+        flex: 0 0 58px;
+        width: 58px;
+        min-width: 58px;
+        margin: 0;
+        font-size: 0.7rem;
+        line-height: 1.4;
+        white-space: nowrap;
+    }
+
+    /* 見出しのアクセント */
+    div.meta-container .card-filters .title-tag::before,
+    div.meta-container .card-tags .title-tag::before {
+        width: 3px;
+        height: 12px;
+        margin-right: 6px;
+    }
+
+    /* =====================================================
+       チップのスクロール領域
+       ===================================================== */
+    /*
+     * カテゴリ・タグのチップだけを
+     * 横方向にスクロールさせる。
+     */
+    div.meta-container .card-filters,
+    div.meta-container .card-tags {
+        overflow-x: auto;
+        overflow-y: hidden;
+        /*
+         * iOS / Android のタッチスクロールを
+         * 滑らかにする。
+         */
+        -webkit-overflow-scrolling: touch;
+        /*
+         * 縦スクロール中に
+         * 横スクロールを誤って発生させにくくする。
+         */
+        touch-action: pan-x;
+        /*
+         * スクロール領域の右側に
+         * 少し余白を確保する。
+         */
+        padding-right: 4px;
+        /*
+         * スクロールバーを非表示。
+         */
+        scrollbar-width: none;
+        box-sizing: border-box;
+    }
+
+    /*
+     * Chrome / Safari / Edge
+     * スクロールバーを非表示
+     */
+    div.meta-container .card-filters::-webkit-scrollbar,
+    div.meta-container .card-tags::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* =====================================================
+       スクロールするチップ
+       ===================================================== */
+    div.meta-container .filter-label.clickable-tag,
+    div.meta-container .tag-label.clickable-tag {
+        flex: 0 0 auto;
+        padding: 5px 10px;
+        font-size: 0.72rem;
+        white-space: nowrap;
+        box-sizing: border-box;
+    }
+
+    /* =====================================================
+       スクロール領域の最初・最後
+       ===================================================== */
+    /*
+     * 左端に少し余裕を持たせる。
+     */
+    div.meta-container .card-filters> :first-child,
+    div.meta-container .card-tags> :first-child {
+        margin-left: 1px;
+    }
+
+    /*
+     * 最後のチップの右側にも少し余白を作る。
+     */
+    div.meta-container .card-filters> :last-child,
+    div.meta-container .card-tags> :last-child {
+        margin-right: 4px;
+    }
+}
+
+@media (max-width: 600px) {
+    div.meta-container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        gap: 7px;
+        margin-bottom: 12px;
+        padding: 9px 10px;
+        border: 1px solid color-mix(in srgb, var(--color-main) 30%, transparent);
+        border-radius: 8px;
+        background-color: color-mix(in srgb, var(--color-main) 3%, transparent);
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    /*
+     * カテゴリ・タグ
+     *
+     * アイコンのすぐ横からチップを配置する。
+     */
+    div.meta-container .card-filters,
+    div.meta-container .card-tags {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        gap: 6px;
+        margin: 0;
+        box-sizing: border-box;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-x;
+        scrollbar-width: none;
+    }
+
+    /*
+     * Chrome / Safari / Edge
+     * スクロールバーを非表示
+     */
+    div.meta-container .card-filters::-webkit-scrollbar,
+    div.meta-container .card-tags::-webkit-scrollbar {
+        display: none;
+    }
+
+    /*
+     * アイコン
+     *
+     * 必要な幅だけ確保する。
+     */
+    div.meta-container .title-tag {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        width: auto;
+        min-width: 18px;
+        margin: 0;
+        font-size: 0.78rem;
+        line-height: 1;
+        white-space: nowrap;
+    }
+
+    /*
+     * アイコンのアクセント
+     */
+    div.meta-container .card-filters .title-tag::before,
+    div.meta-container .card-tags .title-tag::before {
+        width: 3px;
+        height: 12px;
+        margin-right: 5px;
+    }
+
+    /*
+     * カテゴリ・タグのチップ
+     */
+    div.meta-container .filter-label.clickable-tag,
+    div.meta-container .tag-label.clickable-tag {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        max-width: none;
+        min-width: auto;
+        padding: 5px 10px;
+        font-size: 0.72rem;
+        line-height: 1.2;
+        white-space: nowrap;
+        box-sizing: border-box;
+    }
+
+    /*
+     * 最初のチップとの間隔
+     */
+    div.meta-container .card-filters>.title-tag+.filter-label,
+    div.meta-container .card-tags>.title-tag+.tag-label {
+        margin-left: 0;
+    }
+
+    /*
+     * 最後のチップの右側に少し余白
+     */
+    div.meta-container .card-filters> :last-child,
+    div.meta-container .card-tags> :last-child {
+        margin-right: 4px;
+    }
 }
