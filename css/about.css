@@ -1,0 +1,158 @@
+.about-me {
+  display: block;
+  text-align: center;
+}
+
+.icon {
+  display: inline-block;
+  text-align: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 30px;
+  border-radius: 50%;
+  padding: 30px;
+  background-color: var(--color-main);
+}
+
+.icon svg {
+  text-align: center;
+}
+
+.meigi {
+  width: 100%;
+  display: flex;
+}
+
+.nisigma,
+.major_exe,
+.fuuseki {
+  flex: 1;
+  margin: 0 5px;
+  padding: 0.5em 1em;
+  border: solid 1px var(--color-second);
+  border-radius: 4px;
+}
+
+@media all and (max-width: 900px) {
+  .meigi {
+    display: inline-block;
+  }
+
+  .major_exe {
+    margin-top: 15px;
+  }
+}
+
+.major_icon_div {
+  background-color: black;
+}
+
+/* ul */
+.desc .img-frame picture {
+  max-width: 315px;
+}
+
+.desc ul {
+  padding-left: 15px;
+  list-style-type: disc;
+}
+
+/* --- タイムライン全体の基本設定 --- */
+.timeline {
+  list-style: none;
+  padding: 0;
+}
+
+/* モバイル用：基本設定 */
+.timeline>li {
+  margin-bottom: 40px;
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline h3 {
+  border-left: 0;
+  border-bottom: 0;
+  padding-left: 0;
+  padding-bottom: 0;
+  margin: 0 0 5px 0;
+}
+
+.timeline-date {
+  font-size: 0.9em;
+  color: var(--color-hover);
+  margin-bottom: 5px;
+}
+
+/* モバイル用：縦線 */
+.timeline>li:before {
+  content: '';
+  width: 3px;
+  background: var(--color-second);
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  bottom: -40px;
+}
+
+/* モバイル用：円マーカー */
+.timeline>li:after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: var(--color-main);
+  position: absolute;
+  left: 0;
+  top: 5px;
+  border-radius: 100%;
+}
+
+.timeline>li:last-child:before {
+  display: none;
+}
+
+/* --- for Desktop --- */
+@media (min-width : 640px) {
+  .timeline>li {
+    overflow: hidden;
+    margin: 0;
+    position: relative;
+    padding-left: 0;
+    /* モバイル用の左余白を打ち消す */
+  }
+
+  /* モバイル用の縦線と円を完全に非表示にする */
+  .timeline>li:before,
+  .timeline>li:after {
+    display: none;
+  }
+
+  .timeline-date {
+    width: 110px;
+    float: left;
+    margin-top: 8px;
+  }
+
+  .timeline-content {
+    width: 75%;
+    float: left;
+    border-left: 3px var(--color-second) solid;
+    padding-left: 30px;
+    position: relative;
+    /* beforeを正しく配置するために必要 */
+  }
+
+  /* デスクトップ用：円マーカー */
+  .timeline-content:before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: var(--color-main);
+    position: absolute;
+    left: -8px;
+    /* 線の中心に来るように調整 */
+    top: 13px;
+    /* h3の位置に合わせて調整 */
+    border-radius: 100%;
+  }
+}
