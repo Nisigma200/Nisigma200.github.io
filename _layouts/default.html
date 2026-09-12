@@ -1,5 +1,11 @@
+{% assign og_prefix = "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#" %}
+{% assign og_type = "website" %}
+{% unless page.url contains site.baseurl and page.url == site.baseurl or page.url == '/' %}
+{% assign og_prefix = "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#" %}
+{% assign og_type = "article" %}
+{% endunless %}
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" prefix="{{ og_prefix }}">
 
 <head>
     <!-- メタ情報・基本設定 -->
@@ -52,6 +58,8 @@
     <meta property="og:url" content="{{ page.url | replace:'index.html','' | absolute_url }}">
     <meta property="og:description" content="{{ page.description | default: site.description }}">
     <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:email" content="nisigma.200@gmail.com">
     {% if page.og_image %}
     <meta property="og:image" content="{{ page.og_image | absolute_url }}">
     {% else %}
@@ -59,6 +67,7 @@
     {% endif %}
 
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="{{ page.description | default: site.description }}">
     <meta name="twitter:site" content="@Nisigma_200">
     <meta name="twitter:creator" content="@Nisigma_200">
 
