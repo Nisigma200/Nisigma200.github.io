@@ -129,6 +129,10 @@
                             <div class="center">
                                 <span><a href="{{ site.baseurl }}/portfolio/" class="a">Portfolio</a></span>
                                 <span><a href="{{ site.baseurl }}/contact/" class="a">CONTACT</a></span>
+                                <span class="mobile-only">
+                                    <span><a href="{{ site.baseurl }}/sitemap/" class="a">Sitemap</a></span>
+                                    <span><a href="{{ site.baseurl }}/policy/privacy-policy/" class="a">Privacy Policy</a></span>
+                                </span>
                             </div>
                             <div class="right"> </div>
                         </div>
@@ -147,6 +151,7 @@
                                     {% when "paper" %}{% assign icon_class = "pan-paper" %}
                                     {% when "search" %}{% assign icon_class = "pan-search" %}
                                     {% when "404" %}{% assign icon_class = "pan-404" %}
+                                    {% when "sitemap" %}{% assign icon_class = "pan-sitemap" %}
                                     {% endcase %}
 
                                     {% if item.url %}

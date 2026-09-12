@@ -1096,6 +1096,10 @@ header .contents {
   align-items: center;
 }
 
+.mobile-only {
+  display: none;
+}
+
 .center a {
   text-decoration: none;
   font-weight: bold;
@@ -1508,6 +1512,10 @@ header td.gsc-search-button {
     display: inline-block !important;
   }
 
+  .mobile-only {
+    display: inline;
+  }
+
   .center span a {
     font-size: 16px;
     display: flex;
@@ -1884,6 +1892,11 @@ footer .copyright {
 .pan-search:before {
   /*検索結果アイコン*/
   content: '\e8b6';
+}
+
+.pan-sitemap:before {
+  /*サイトマップアイコン*/
+  content: '\e97a';
 }
 
 .breadcrumb li a:hover>span {
