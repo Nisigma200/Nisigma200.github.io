@@ -1,0 +1,86 @@
+/* 全体のリスト初期化 */
+.sitemap-list,
+.sitemap-list ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.sitemap-list li {
+    position: relative;
+    margin: 8px 0;
+}
+
+/* 最上位階層を含むテキスト・リンクの基本スタイル（装飾を最小限に） */
+.sitemap-list .a,
+.sitemap-list span {
+    display: inline-block;
+    padding: 4px 8px;
+    color: #334155;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.sitemap-list span {
+    font-weight: 600;
+}
+
+.sitemap-list .a:hover {
+    color: var(--color-main);
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* 第2階層以降のコンテナ */
+.sitemap-list ul {
+    position: relative;
+    margin-top: 4px;
+    padding-left: 24px;
+}
+
+.sitemap-list ul li {
+    position: relative;
+    margin: 4px 0;
+}
+
+/* 階層構造の縦線 */
+.sitemap-list ul li::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    bottom: -4px;
+    left: -12px;
+    width: 1px;
+    background-color: #cbd5e1;
+    /* 主張しすぎない落ち着いた色 */
+    transition: background-color 0.2s ease;
+}
+
+/* 最初の要素の縦線は上にはみ出させない */
+.sitemap-list ul li:first-child::before {
+    top: 0;
+}
+
+/* 最後の要素の縦線は横線と交差する中央で止める */
+.sitemap-list ul li:last-child::before {
+    bottom: 50%;
+}
+
+/* 階層構造の横線（枝線） */
+.sitemap-list ul li::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -12px;
+    width: 12px;
+    height: 1px;
+    background-color: #cbd5e1;
+    transform: translateY(-50%);
+    transition: background-color 0.2s ease;
+}
+
+/* ホバー時に該当箇所の枝線のみテーマカラーに点灯させる */
+.sitemap-list ul li:hover::before,
+.sitemap-list ul li:hover::after {
+    background-color: var(--color-main);
+}

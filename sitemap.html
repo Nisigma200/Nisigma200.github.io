@@ -1,0 +1,40 @@
+---
+layout: default
+title: 西隈サイト | サイトマップ
+description: "西隈（ニシグマ）のサイトマップです。"
+create-date: 2026-09-12
+update-date: 2026-09-12
+css_path: css/sitemap.css
+breadcrumbs:
+- { name: "ホーム", url: "/", icon: "home" }
+- { name: "サイトマップ", url: null, icon: "paper" }
+---
+
+<h1>サイトマップ</h1>
+
+<ul class="sitemap-list">
+    <li>
+        <a class="a" rel="noopener" href="{{ '/' | relative_url }}">トップページ</a>
+    </li>
+    <li>
+        <a class="a" rel="noopener" href="{{ '/portfolio' | relative_url }}">ポートフォリオ</a>
+        <ul>
+            {% assign sorted_portfolio = site.portfolio | sort: "create-date" | reverse %}
+            {% for item in sorted_portfolio %}
+            <li>
+                <a class="a" rel="noopener" href="{{ item.url | relative_url }}">{{ item.title | replace: '西隈サイト | ', '' }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </li>
+    {% assign sorted_pages = site.pages | sort: "create-date" | reverse %}
+    {% for node in sorted_pages %}
+    {% if node.title and node.url != "/" and node.url != "/sitemap.html" and node.url != "/404.html" %}
+    {% unless node.url contains "search" %}
+    <li>
+        <a class="a" rel="noopener" href="{{ node.url | relative_url }}">{{ node.title | replace: '西隈サイト | ', '' }}</a>
+    </li>
+    {% endunless %}
+    {% endif %}
+    {% endfor %}
+</ul>
