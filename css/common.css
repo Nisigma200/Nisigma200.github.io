@@ -1754,15 +1754,14 @@ footer .copyright {
   }
 
   /* 特定の要素の後で強制的に改行させるためのテクニック */
-  /* STORE と GUIDELINE の間に改行を入れたい場合 */
-  footer .footer-nav li:nth-child(3)::after {
+  footer .footer-nav li:nth-child(4)::after {
     content: "";
     flex-basis: 100%;
     /* これにより次の要素が必ず次の行に行く */
   }
 
   /* 改行した行の先頭にある縦線（PRIVACY POLICYの前の線）を消す */
-  footer .footer-nav li:nth-child(4) {
+  footer .footer-nav li:nth-child(5) {
     border-left: none;
   }
 
