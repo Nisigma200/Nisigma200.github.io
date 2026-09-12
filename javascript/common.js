@@ -74,13 +74,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// HTMLの文書構造が完全に読み込まれてから画像の全画面表示処理を実行する
+// HTMLの文書構造が完全に読み込まれてから画像の全画面表示処理およびスライダー操作制限を実行する
 document.addEventListener("DOMContentLoaded", () => {
     /** 画像を囲む枠の内部にある画像要素群 */
-    const targetImages = document.querySelectorAll(".img-frame img");
+    const targetImages = document.querySelectorAll(".img-frame img:not(.shodo-slider-img)");
+    /** 比較用スライダーコンテナ要素群 */
+    const shodoSliders = document.querySelectorAll(".shodo-slider-container");
 
-    // 画像を囲む枠の内部にある画像要素群が1つ以上存在するか判定する
-    if (targetImages.length > 0) {
+    // 画像要素または比較用スライダーコンテナが存在するか判定する
+    if (targetImages.length > 0 || shodoSliders.length > 0) {
         /** 全画面表示を行うための背景要素 */
         const overlayElement = document.createElement("div");
         // 全画面表示を行うための背景要素を画面全体に固定表示し、黒の半透明にするための見た目を設定する
@@ -108,15 +110,62 @@ document.addEventListener("DOMContentLoaded", () => {
         // HTMLの本体要素の末尾に全画面表示を行うための背景要素を追加する
         document.body.appendChild(overlayElement);
 
-        // 画像を囲む枠の内部にある画像要素群を1つずつ順番に処理する
+        // 通常の画像要素群を1つずつ順番に処理する
         targetImages.forEach((imgElement) => {
             // 処理中の個別の画像要素がクリックされたときの処理を設定する
-            imgElement.addEventListener("click", () => {
+            imgElement.addEventListener("click", (e) => {
+                // イベントの伝播を停止する
+                e.stopPropagation();
                 // 全画面表示を行うための画像要素の画像パスに、クリックされた処理中の個別の画像要素の画像パスを設定する
                 overlayImage.src = imgElement.src;
                 // 全画面表示を行うための背景要素を表示状態に変更する
                 overlayElement.style.display = "flex";
             });
+        });
+
+        // 比較用スライダーコンテナ要素群を1つずつ順番に処理する
+        shodoSliders.forEach((container) => {
+            /** スライダー内のベース画像（下レイヤーの作品画像）要素 */
+            const baseImageTarget = container.querySelector(".shodo-base-picture img") || container.querySelector(".shodo-slider-img");
+            /** スライダー内のレンジインプット要素 */
+            const rangeInput = container.querySelector(".shodo-slider-range");
+
+            // レンジインプットが存在する場合にクリック時の全画面表示およびスライド制限を制御する
+            if (rangeInput) {
+                // クリック時にハンドル以外が押された場合はベース画像（下レイヤー）を全画面表示する
+                rangeInput.addEventListener("click", (e) => {
+                    /** レンジインプット要素自体の寸法と位置情報を取得する */
+                    const rect = rangeInput.getBoundingClientRect();
+                    /** マウスがクリックされた水平方向の相対位置 */
+                    const clickX = e.clientX - rect.left;
+                    /** レンジインプット全体の横幅 */
+                    const width = rect.width;
+
+                    /** 最小値 */
+                    const min = parseFloat(rangeInput.min) || 0;
+                    /** 最大値 */
+                    const max = parseFloat(rangeInput.max) || 100;
+                    /** 現在の値 */
+                    const val = parseFloat(rangeInput.value) || 0;
+
+                    /** 現在の値に対応するハンドルの中心ピクセル位置を計算する */
+                    const handleX = width * ((val - min) / (max - min));
+
+                    /** ハンドルのおおよその半径ピクセルサイズ */
+                    const handleRadius = 20;
+
+                    // クリックされた位置がハンドル周辺の許容範囲外（トラック部分）である場合は全画面表示を開く
+                    if (Math.abs(clickX - handleX) > handleRadius) {
+                        e.stopPropagation();
+                        if (baseImageTarget) {
+                            // 全画面表示を行うための画像要素の画像パスに、ベース画像のソースを設定する
+                            overlayImage.src = baseImageTarget.src;
+                            // 全画面表示を行うための背景要素を表示状態に変更する
+                            overlayElement.style.display = "flex";
+                        }
+                    }
+                });
+            }
         });
 
         // 全画面表示を行うための背景要素がクリックされたときの処理を設定する
