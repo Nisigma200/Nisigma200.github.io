@@ -24,7 +24,9 @@
 
 .portfolio-item {
   display: block;
-  border-radius: 6px;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  background-color: #fff;
   transition: background-color 0.2s ease;
 }
 
@@ -39,8 +41,8 @@
   gap: 15px;
   text-decoration: none;
   color: inherit;
-  padding: 10px 12px;
-  border-radius: 6px;
+  padding: 12px 16px;
+  border-radius: 8px;
 }
 
 .portfolio-item .categories {
@@ -87,6 +89,31 @@
 
 .portfolio-item p {
   display: none;
+}
+
+.feed-footer {
+  margin-top: 16px;
+  text-align: right;
+}
+
+.feed-more-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #111;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.feed-more-link::after {
+  content: "→";
+  transition: transform 0.2s ease;
+}
+
+.feed-more-link:hover::after {
+  transform: translateX(4px);
 }
 
 @media screen and (max-width: 768px) {
@@ -140,11 +167,10 @@
   justify-content: space-between;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease;
 }
 
 .nav-cards .card:hover {
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
