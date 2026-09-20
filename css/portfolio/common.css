@@ -384,3 +384,314 @@ div.meta-container .tag-label.clickable-tag:hover {
         margin-right: 4px;
     }
 }
+
+/* ========================================
+   おすすめ記事
+======================================== */
+
+/* セクション全体 */
+.related-articles {
+    border-top: 2px solid var(--color-main);
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+/* セクションタイトル */
+.related-articles>p {
+    margin: 0;
+    padding: 0 0 12px;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+/* 記事一覧 */
+.related-articles-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+/* ========================================
+   おすすめ記事カード
+======================================== */
+
+/* カード本体 */
+.related-article-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 80px;
+    grid-template-rows: 1fr;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 14px 0;
+    box-sizing: border-box;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #e5e5e5;
+    border-radius: 0;
+    color: inherit;
+    text-decoration: none;
+    box-shadow: none;
+    transform: none;
+
+    transition: background-color 0.2s ease;
+}
+
+/* ホバー */
+.related-article-card:hover {
+    background-color: #f8f8f8;
+    box-shadow: none;
+    transform: none;
+}
+
+/* ========================================
+   記事情報（左側）
+======================================== */
+
+/* 記事情報エリア */
+.related-article-info {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+    padding: 0;
+    padding-left: 10px;
+}
+
+/* 記事タイトル（最初のpタグ） */
+.related-article-info p:first-child {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: bold;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+/* 記事説明文 */
+.related-article-info p:not(:first-child) {
+    display: block;
+    margin: 6px 0 0;
+    font-size: 0.85rem;
+    font-weight: normal;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* ========================================
+   サムネイル
+======================================== */
+/* サムネイル枠 */
+.related-article-thumbnail {
+    grid-column: 2;
+    grid-row: 1;
+    width: 80px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #f3f3f3;
+    border-radius: 4px;
+}
+
+/* サムネイル画像 */
+.related-article-thumbnail img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: none;
+    transition: none;
+}
+
+/* ホバー時も画像を拡大しない */
+.related-article-card:hover .related-article-thumbnail img {
+    transform: none;
+}
+
+/* ========================================
+   カテゴリ一覧ボタン
+======================================== */
+
+/* ボタン配置 */
+.related-articles-more-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 40px 0 0 20px;
+}
+
+/* ボタン本体 */
+.related-articles-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 320px;
+    min-height: 48px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background: #fff;
+    color: #222;
+    border: 1px solid var(--color-main);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+/* ボタンホバー */
+.related-articles-more:hover {
+    background: var(--color-main);
+    color: #fff;
+}
+
+/* ========================================
+   キーボードTab操作
+======================================== */
+
+.related-article-card:focus-visible,
+.related-articles-more:focus-visible {
+    outline: 2px solid var(--color-main);
+    outline-offset: 3px;
+}
+
+/* ========================================
+   スマートフォン対応
+======================================== */
+
+@media (max-width: 600px) {
+
+    /* セクション全体 */
+    .related-articles {
+        margin: 30px 0;
+    }
+
+    /* セクションタイトル */
+    .related-articles>p {
+        font-size: 0.95rem;
+    }
+
+    /* 記事カード */
+    .related-article-card {
+        grid-template-columns: minmax(0, 1fr) 72px;
+        gap: 12px;
+
+        padding: 12px 0;
+    }
+
+    /* 記事タイトル */
+    .related-article-info p:first-child {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+
+    /* サムネイル */
+    .related-article-thumbnail {
+        width: 72px;
+        height: auto;
+    }
+
+    /* カテゴリボタン */
+    .related-articles-more-container {
+        gap: 10px;
+        margin-top: 16px;
+    }
+
+    .related-articles-more {
+        max-width: 100%;
+        min-height: 44px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ========================================
+   モーション軽減設定
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .related-article-card,
+    .related-articles-more {
+        transition: none;
+    }
+}
+
+/* ========================================
+   カテゴリ別の記事一覧ボタン
+======================================== */
+
+.related-articles-more-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 20px 0 0;
+}
+
+/* ボタン本体 */
+.related-articles-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 320px;
+    min-height: 48px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: var(--color-text);
+    border: 1px solid var(--color-main);
+    border-radius: 9px;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+/* ホバー */
+.related-articles-more:hover {
+    background-color: var(--color-main);
+    color: #fff;
+    border-color: var(--color-main);
+}
+
+/* キーボード操作時 */
+.related-articles-more:focus-visible {
+    outline: 2px solid var(--color-main);
+    outline-offset: 3px;
+}
+
+/* スマートフォン */
+@media (max-width: 600px) {
+    .related-articles-more-container {
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .related-articles-more {
+        max-width: 100%;
+        min-height: 46px;
+        font-size: 0.95rem;
+    }
+}
+
+/* 動きを抑える設定 */
+@media (prefers-reduced-motion: reduce) {
+    .related-articles-more {
+        transition: none;
+    }
+}

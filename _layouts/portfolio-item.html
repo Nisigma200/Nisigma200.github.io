@@ -42,3 +42,59 @@ layout: default
 </div>
 
 {{ content }}
+
+<!-- 同じカテゴリの記事 -->
+{% if page.categories.size > 0 %}
+{% assign related_count = 0 %}
+
+<!-- 日付の新しい順（降順）に並び替えた配列を作成 -->
+{% assign sorted_portfolio = site.portfolio | sort: 'date' %}
+
+{% for post in sorted_portfolio %}
+{% if post.url != page.url %}
+{% assign is_related = false %}
+
+{% for category in page.categories %}
+{% if post.categories contains category %}
+{% assign is_related = true %}
+{% endif %}
+{% endfor %}
+
+{% if is_related and related_count < 5 %} {% if related_count==0 %} <section class="related-articles">
+    <p>おすすめ記事</p>
+    <div class="related-articles-list">
+        {% endif %}
+        <a href="{{ post.url | relative_url }}" class="related-article-card">
+            {% if post.thumbnail %}
+            <div class="related-article-thumbnail">
+                <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title | escape }}" loading="lazy">
+            </div>
+            {% endif %}
+            <div class="related-article-info">
+                <p> {{ post.title | replace: '西隈サイト | ', '' | escape }} </p>
+                {% if post.excerpt %}
+                <p> {{ post.excerpt | strip_html | strip_newlines | truncate: 100 }} </p>
+                {% elsif post.description %}
+                <p> {{ post.description | strip_html | strip_newlines | truncate: 100 }} </p>
+                {% endif %}
+            </div>
+        </a>
+        {% assign related_count = related_count | plus: 1 %}
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        {% if related_count > 0 %}
+    </div>
+    <!-- 各カテゴリの記事一覧を見るボタン -->
+    {% if page.categories.size > 0 %}
+    <div class="related-articles-more-container">
+        {% for category in page.categories %}
+        <a href="/portfolio/?category={{ category | url_encode }}" class="related-articles-more">
+            {{ category }}の記事一覧を見る
+        </a>
+        {% endfor %}
+    </div>
+    {% endif %}
+    </section>
+    {% endif %}
+    {% endif %}
