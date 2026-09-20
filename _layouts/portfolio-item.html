@@ -67,7 +67,15 @@ layout: default
         <a href="{{ post.url | relative_url }}" class="related-article-card">
             {% if post.thumbnail %}
             <div class="related-article-thumbnail">
-                <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title | escape }}" loading="lazy">
+                <!-- 拡張子（.jpg, .jpeg, .png）を .webp に変換したパスを作成 -->
+                {% assign webp_thumbnail = post.thumbnail | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' | replace: '.png', '.webp' %}
+
+                <picture class="related-article-picture">
+                    <!-- WebP画像が存在する場合に表示 -->
+                    <source srcset="{{ webp_thumbnail | relative_url }}" type="image/webp">
+                    <!-- WebP非対応ブラウザや画像がない場合のフォールバック表示 -->
+                    <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title | escape }}" loading="lazy" class="related-article-img">
+                </picture>
             </div>
             {% endif %}
             <div class="related-article-info">
